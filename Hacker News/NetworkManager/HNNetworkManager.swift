@@ -36,7 +36,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(topStoryIDs)
+                        requestStories(topStoryIDs, cat: .top)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -51,7 +51,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(newStoryIDs)
+                        requestStories(newStoryIDs, cat: .new)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -66,7 +66,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(bestStoryIDs)
+                        requestStories(bestStoryIDs, cat: .best)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -87,8 +87,6 @@ class HNNetworkManager: ObservableObject {
                 return
             }
             var arr: Array<Int> = []
-            
-            print("data: \(data)")
             
             do {
                 if let json = try JSONSerialization.jsonObject( with: data, options: []) as? [Int] {
@@ -122,10 +120,26 @@ class HNNetworkManager: ObservableObject {
         
     }
     
-    private func requestStories(_ IDs: Array<Int>) {
+    private func requestStories(_ IDs: Array<Int>, cat: StoryCategory) {
+        print(cat.rawValue)
         for id in IDs {
-            print(id)
+            requestStory(id, cat: cat)
         }
+    }
+    
+    private func requestStory(_ id: Int, cat: StoryCategory) {
+        
+        let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json?print=pretty")!
+        print(url)
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else { return }
+            let jsonDecoder = JSONDecoder()
+            if let story = try? jsonDecoder.decode(Story.self, from: data) {
+                print(story.title)
+            }
+        }.resume()
+        
     }
     
     
