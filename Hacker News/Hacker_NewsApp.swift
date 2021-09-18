@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Hacker_NewsApp: App {
+    
+    @StateObject var networkManager: HNNetworkManager = HNNetworkManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(networkManager)
         }
     }
 }
