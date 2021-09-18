@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StoryCategories: String, CaseIterable {
+enum StoryCategory: String, CaseIterable {
     case new = "new"
     case best = "best"
     case top = "top"
