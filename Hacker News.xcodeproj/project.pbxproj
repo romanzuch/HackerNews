@@ -27,6 +27,9 @@
 		309C81F126F6866D0092D42C /* TopStoriesHNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81F026F6866D0092D42C /* TopStoriesHNView.swift */; };
 		309C81F326F695E40092D42C /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81F226F695E40092D42C /* NetworkError.swift */; };
 		309C81F626F69DD20092D42C /* ListElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81F526F69DD20092D42C /* ListElementView.swift */; };
+		309C81FB26F6A4390092D42C /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81FA26F6A4390092D42C /* MenuButton.swift */; };
+		309C81FD26F6AA760092D42C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81FC26F6AA760092D42C /* DetailView.swift */; };
+		309C81FF26F6AEED0092D42C /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81FE26F6AEED0092D42C /* ResponseType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		309C81F026F6866D0092D42C /* TopStoriesHNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesHNView.swift; sourceTree = "<group>"; };
 		309C81F226F695E40092D42C /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		309C81F526F69DD20092D42C /* ListElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElementView.swift; sourceTree = "<group>"; };
+		309C81FA26F6A4390092D42C /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		309C81FC26F6AA760092D42C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		309C81FE26F6AEED0092D42C /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,7 @@
 			children = (
 				309C81EA26F6825C0092D42C /* StoryCategories.swift */,
 				309C81F226F695E40092D42C /* NetworkError.swift */,
+				309C81FE26F6AEED0092D42C /* ResponseType.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -159,12 +166,14 @@
 		309C81D226F65AF60092D42C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				309C81F726F6A3F60092D42C /* MenuButton */,
 				309C81F426F69DC40092D42C /* ListElements */,
 				309C81BE26F655450092D42C /* StoriesHNView */,
 				309C81C126F655CB0092D42C /* AskHNView */,
 				309C81C626F656220092D42C /* ShowHNView */,
 				309C81C726F6562A0092D42C /* JobsHNView */,
 				309C81C826F656300092D42C /* SettingsHNView */,
+				309C81FC26F6AA760092D42C /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +204,14 @@
 				309C81F526F69DD20092D42C /* ListElementView.swift */,
 			);
 			path = ListElements;
+			sourceTree = "<group>";
+		};
+		309C81F726F6A3F60092D42C /* MenuButton */ = {
+			isa = PBXGroup;
+			children = (
+				309C81FA26F6A4390092D42C /* MenuButton.swift */,
+			);
+			path = MenuButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +295,15 @@
 				309C81D726F65C5E0092D42C /* StoryResponseType.swift in Sources */,
 				309C81EB26F6825C0092D42C /* StoryCategories.swift in Sources */,
 				309C81CC26F656460092D42C /* JobsHNMainView.swift in Sources */,
+				309C81FB26F6A4390092D42C /* MenuButton.swift in Sources */,
+				309C81FD26F6AA760092D42C /* DetailView.swift in Sources */,
 				309C81B026F654A90092D42C /* Hacker_NewsApp.swift in Sources */,
 				309C81ED26F685C20092D42C /* NewStoriesHNView.swift in Sources */,
 				309C81D526F65C520092D42C /* HNNetworkManager.swift in Sources */,
 				309C81F126F6866D0092D42C /* TopStoriesHNView.swift in Sources */,
 				309C81C526F656180092D42C /* AskHNMainView.swift in Sources */,
 				309C81F626F69DD20092D42C /* ListElementView.swift in Sources */,
+				309C81FF26F6AEED0092D42C /* ResponseType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
