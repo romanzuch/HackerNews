@@ -13,14 +13,23 @@ struct NewStoriesHNView: View {
     
     var body: some View {
         List {
-            ForEach(Array(networkManager.topStoriesDummy.enumerated()), id: \.offset) { index, story in
-                NavigationLink(
-                    destination:
-                        DetailView(story)
-                    ,
-                    label: {
-                        ListElementView(story)
-                    })
+//            ForEach(Array(networkManager.topStoriesDummy.enumerated()), id: \.offset) { index, story in
+//                NavigationLink(
+//                    destination:
+//                        DetailView(story)
+//                    ,
+//                    label: {
+//                        ListElementView(story)
+//                    })
+//                    .onAppear {
+//                        print("\(index) appearing.")
+//                    }
+//            }
+            ForEach(networkManager.newStoryIDs, id: \.self) { id in
+                Text(networkManager.newStories.keys.contains(id) ? "1" : "0")
+                    .onAppear {
+                        networkManager.requestStory(id, cat: .new)
+                    }
             }
         }
         .listStyle(GroupedListStyle())
@@ -30,8 +39,3 @@ struct NewStoriesHNView: View {
     }
 }
 
-struct NewStoriesHNView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewStoriesHNView()
-    }
-}
