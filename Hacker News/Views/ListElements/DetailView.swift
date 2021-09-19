@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct DetailView: View {
     
@@ -13,6 +14,7 @@ struct DetailView: View {
     let dateFormatter = DateFormatter()
     var timeString: String
     let formatter = RelativeDateTimeFormatter()
+    let networkManager: HNNetworkManager = HNNetworkManager()
     
     init(_ story: Story) {
         self.story = story
@@ -26,22 +28,50 @@ struct DetailView: View {
     
     var body: some View {
         VStack {
+            // Header
             HStack {
                 Text(story.user).font(.system(size: 10.0)).fontWeight(.bold)
                 Text("\u{00B7}")
-                Text(story.comments.count != 1 ? "\(story.comments.count) comments" : "\(story.comments.count) comment").font(.system(size: 10.0))
+//                Text(story.comments.count != 1 ? "\(story.comments.count) comments" : "\(story.comments.count) comment").font(.system(size: 10.0))
                 Text("\u{00B7}")
                 Text("\(self.timeString)").font(.system(size: 10.0))
             }
+            
+            // Title
             Text(story.title)
+            
+            // URL
+            Group {
+                if (story.url != nil) {
+                    Link(destination: URL(string: story.url!)!, label: {
+                        Text(story.url!).font(.system(size: 10.0))
+                    })
+                } else {
+                    EmptyView()
+                }
+            }
+            
+            // Comments
+//            Group {
+//                ForEach(story.comments, id: \.self) { comment in
+//                    Text("\(networkManager.requestComment(comment).text)")
+//                }
+//            }
             Spacer()
         }
         .navigationBarItems(trailing:
-            Button(action: {
-                print("starring")
-            }, label: {
-                Image(systemName: "star")
-            })
+            HStack {
+                Button(action: {
+                    print("starring")
+                }, label: {
+                    Image(systemName: "star")
+                })
+                Button(action: {
+                    print("starring")
+                }, label: {
+                    Image(systemName: "square.and.arrow.up")
+                })
+            }
         )
     }
 }
