@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ShowHNMainView: View {
     var body: some View {
-        Text("Show")
+        NavigationView {
+            Text("show")
+            .navigationBarTitle("show")
+        }
     }
 }
 
