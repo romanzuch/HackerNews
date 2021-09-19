@@ -94,7 +94,6 @@
 				309C81CF26F657A90092D42C /* HelperFiles */,
 				309C81D226F65AF60092D42C /* Views */,
 				309C81AF26F654A90092D42C /* Hacker_NewsApp.swift */,
-				309C81B126F654A90092D42C /* ContentView.swift */,
 				309C81B326F654AA0092D42C /* Assets.xcassets */,
 				309C81B826F654AA0092D42C /* Info.plist */,
 				309C81B526F654AA0092D42C /* Preview Content */,
@@ -166,6 +165,7 @@
 		309C81D226F65AF60092D42C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				309C81B126F654A90092D42C /* ContentView.swift */,
 				309C81F726F6A3F60092D42C /* MenuButton */,
 				309C81F426F69DC40092D42C /* ListElements */,
 				309C81BE26F655450092D42C /* StoriesHNView */,
@@ -173,7 +173,6 @@
 				309C81C626F656220092D42C /* ShowHNView */,
 				309C81C726F6562A0092D42C /* JobsHNView */,
 				309C81C826F656300092D42C /* SettingsHNView */,
-				309C81FC26F6AA760092D42C /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 		309C81F426F69DC40092D42C /* ListElements */ = {
 			isa = PBXGroup;
 			children = (
+				309C81FC26F6AA760092D42C /* DetailView.swift */,
 				309C81F526F69DD20092D42C /* ListElementView.swift */,
 			);
 			path = ListElements;
