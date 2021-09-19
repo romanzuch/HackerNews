@@ -18,9 +18,9 @@ struct ContentView: View {
             StoriesHNMainView()
                 .tabItem {
                     if tabSelection == 0 {
-                        Label("Stories", systemImage: "books.vertical.fill")
+                        Label("stories", systemImage: "books.vertical.fill")
                     } else {
-                        Label("Stories", systemImage: "books.vertical")
+                        Label("stories", systemImage: "books.vertical")
                     }
                 }.tag(0)
                 .environmentObject(networkManager)
@@ -28,36 +28,36 @@ struct ContentView: View {
             AskHNMainView()
                 .tabItem {
                     if tabSelection == 1 {
-                        Label("Ask", systemImage: "bubble.left.and.bubble.right.fill")
+                        Label("ask", systemImage: "bubble.left.and.bubble.right.fill")
                     } else {
-                        Label("Ask", systemImage: "bubble.left.and.bubble.right")
+                        Label("ask", systemImage: "bubble.left.and.bubble.right")
                     }
                 }.tag(1)
             
             ShowHNMainView()
                 .tabItem {
                     if tabSelection == 2 {
-                        Label("Show", systemImage: "eye.fill")
+                        Label("show", systemImage: "eye.fill")
                     } else {
-                        Label("Show", systemImage: "eye")
+                        Label("show", systemImage: "eye")
                     }
                 }.tag(2)
             
             JobsHNMainView()
                 .tabItem {
                     if tabSelection == 3 {
-                        Label("Jobs", systemImage: "graduationcap.fill")
+                        Label("jobs", systemImage: "graduationcap.fill")
                     } else {
-                        Label("Jobs", systemImage: "graduationcap")
+                        Label("jobs", systemImage: "graduationcap")
                     }
                 }.tag(3)
             
             SettingsHNMainView()
                 .tabItem {
                     if tabSelection == 4 {
-                        Label("Settings", systemImage: "gearshape.fill")
+                        Label("settings", systemImage: "gearshape.fill")
                     } else {
-                        Label("Settings", systemImage: "gearshape")
+                        Label("settings", systemImage: "gearshape")
                     }
                 }.tag(4)
             
