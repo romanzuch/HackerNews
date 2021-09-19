@@ -26,7 +26,20 @@ struct NewStoriesHNView: View {
 //                    }
 //            }
             ForEach(networkManager.newStoryIDs, id: \.self) { id in
-                Text(networkManager.newStories.keys.contains(id) ? "1" : "0")
+                Group {
+                    if networkManager.newStories.keys.contains(id) {
+                        NavigationLink(
+                            destination: DetailView(networkManager.newStories[id]!),
+                            label: {
+                                ListElementView(networkManager.newStories[id]!)
+//                                Text(networkManager.newStories.keys.contains(id) ? "\(networkManager.newStories[id]!.title)" : "ListElementPlaceholderText")
+                            })
+                            .unredacted()
+                    } else {
+                        Text(networkManager.newStories.keys.contains(id) ? "\(networkManager.newStories[id]!.title)" : "ListElementPlaceholderText")
+                            .redacted(reason: .placeholder)
+                    }
+                }
                     .onAppear {
                         networkManager.requestStory(id, cat: .new)
                     }
@@ -37,5 +50,6 @@ struct NewStoriesHNView: View {
             networkManager.request(.newStoriesURL)
         }
     }
+    
 }
 
