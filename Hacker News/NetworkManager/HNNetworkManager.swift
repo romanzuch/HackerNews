@@ -15,14 +15,30 @@ class HNNetworkManager: ObservableObject {
     @Published var bestStoryIDs: Array<Int> = []
     
     // Story Arrays
-    @Published var topStories: Array<Story> = []
-    @Published var newStories: Array<Story> = []
-    @Published var bestStories: Array<Story> = []
+    @Published var topStories: [Int:Story] = [:]
+    @Published var newStories: [Int:Story] = [:]
+    @Published var bestStories: [Int:Story] = [:]
     
     // Story Dummies
     let topStoriesDummy: Array<Story> = [
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1631982344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1631982344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/")
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
+        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/")
     ]
     
     func request(_ url: apiURL) {
@@ -36,7 +52,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(topStoryIDs, cat: .top)
+//                        requestStories(topStoryIDs, cat: .top)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -51,7 +67,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(newStoryIDs, cat: .new)
+//                        requestStories(newStoryIDs, cat: .new)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -66,7 +82,7 @@ class HNNetworkManager: ObservableObject {
                     switch result {
                     case .success:
                         print("success")
-                        requestStories(bestStoryIDs, cat: .best)
+//                        requestStories(bestStoryIDs, cat: .best)
                     case .failure(let error):
                         print(error.localizedDescription)
                     }
@@ -120,25 +136,67 @@ class HNNetworkManager: ObservableObject {
         
     }
     
-    private func requestStories(_ IDs: Array<Int>, cat: StoryCategory) {
-        print(cat.rawValue)
-        for id in IDs {
-            requestStory(id, cat: cat)
-        }
-    }
+//    private func requestStories(_ IDs: Array<Int>, cat: StoryCategory) {
+//        print(cat.rawValue)
+//        for id in IDs {
+//            requestStory(id, cat: cat)
+//        }
+//    }
     
-    private func requestStory(_ id: Int, cat: StoryCategory) {
+    func requestStory(_ id: Int, cat: StoryCategory) {
         
         let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json?print=pretty")!
-        print(url)
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let data = data else { return }
-            let jsonDecoder = JSONDecoder()
-            if let story = try? jsonDecoder.decode(Story.self, from: data) {
-                print(story.title)
+        switch cat {
+        case .new:
+            if newStories.keys.contains(id) {
+                print("Already there.")
+                return
+            } else {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else { return }
+                    let jsonDecoder = JSONDecoder()
+                    if let story = try? jsonDecoder.decode(Story.self, from: data) {
+                        DispatchQueue.main.async {
+                            self.newStories[id] = story
+                        }
+                    }
+                }.resume()
             }
-        }.resume()
+            
+        case .best:
+            if bestStories.keys.contains(id) {
+                print("Already there.")
+                return
+            } else {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else { return }
+                    let jsonDecoder = JSONDecoder()
+                    if let story = try? jsonDecoder.decode(Story.self, from: data) {
+                        DispatchQueue.main.async {
+                            self.bestStories[id] = story
+                        }
+                    }
+                }.resume()
+            }
+            
+        case .top:
+            if topStories.keys.contains(id) {
+                print("Already there.")
+                return
+            } else {
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    guard let data = data else { return }
+                    let jsonDecoder = JSONDecoder()
+                    if let story = try? jsonDecoder.decode(Story.self, from: data) {
+                        DispatchQueue.main.async {
+                            self.topStories[id] = story
+                        }
+                    }
+                }.resume()
+            }
+            
+        }
         
     }
     
