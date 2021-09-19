@@ -19,28 +19,6 @@ class HNNetworkManager: ObservableObject {
     @Published var newStories: [Int:Story] = [:]
     @Published var bestStories: [Int:Story] = [:]
     
-    // Story Dummies
-    let topStoriesDummy: Array<Story> = [
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/"),
-        Story(user: "jcubic", id: 28577371, comments: [28578546, 28578424, 28577860], score: 144, time: 1231972344, title: "How to Rapidly Improve at Any Programming Language (2016)", type: "story", url:  "https://www.cbui.dev/how-to-rapidly-improve-at-any-programming-language/")
-    ]
-    
     func request(_ url: apiURL) {
         
         guard let urlRawValue = URL(string: url.rawValue) else { return }
@@ -48,7 +26,7 @@ class HNNetworkManager: ObservableObject {
         switch url {
         case .topStoriesURL:
             if topStoryIDs.count == 0 {
-                requestIDs(urlRawValue, apiURL: url) { [self] result in
+                requestIDs(urlRawValue, apiURL: url) { result in
                     switch result {
                     case .success:
                         print("success")
@@ -63,7 +41,7 @@ class HNNetworkManager: ObservableObject {
             
         case .newStoriesURL:
             if newStoryIDs.count == 0 {
-                requestIDs(urlRawValue, apiURL: url) { [self] result in
+                requestIDs(urlRawValue, apiURL: url) { result in
                     switch result {
                     case .success:
                         print("success")
@@ -78,7 +56,7 @@ class HNNetworkManager: ObservableObject {
             
         case .bestStoriesURL:
             if bestStoryIDs.count == 0 {
-                requestIDs(urlRawValue, apiURL: url) { [self] result in
+                requestIDs(urlRawValue, apiURL: url) { result in
                     switch result {
                     case .success:
                         print("success")
@@ -150,12 +128,12 @@ class HNNetworkManager: ObservableObject {
         switch cat {
         case .new:
             if newStories.keys.contains(id) {
-                print("Already there.")
                 return
             } else {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     guard let data = data else { return }
                     let jsonDecoder = JSONDecoder()
+//                    print(String(data: data, encoding: .utf8))
                     if let story = try? jsonDecoder.decode(Story.self, from: data) {
                         DispatchQueue.main.async {
                             self.newStories[id] = story
@@ -166,12 +144,12 @@ class HNNetworkManager: ObservableObject {
             
         case .best:
             if bestStories.keys.contains(id) {
-                print("Already there.")
                 return
             } else {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     guard let data = data else { return }
                     let jsonDecoder = JSONDecoder()
+//                    print(String(data: data, encoding: .utf8))
                     if let story = try? jsonDecoder.decode(Story.self, from: data) {
                         DispatchQueue.main.async {
                             self.bestStories[id] = story
@@ -182,12 +160,12 @@ class HNNetworkManager: ObservableObject {
             
         case .top:
             if topStories.keys.contains(id) {
-                print("Already there.")
                 return
             } else {
                 URLSession.shared.dataTask(with: url) { (data, response, error) in
                     guard let data = data else { return }
                     let jsonDecoder = JSONDecoder()
+//                    print(String(data: data, encoding: .utf8))
                     if let story = try? jsonDecoder.decode(Story.self, from: data) {
                         DispatchQueue.main.async {
                             self.topStories[id] = story
@@ -198,6 +176,10 @@ class HNNetworkManager: ObservableObject {
             
         }
         
+    }
+    
+    func requestComment(_ id: Int) -> Comment {
+        return Comment(user: "stingraycharles", id: 28578541, comments: [28578595, 28578629], parent: 28578399, text: "Since this is HN, it’s 2021 and DDoS’es are still a thing:  why are they still a thing? Is there some fundamental “anonymity” to the Internet that makes it impossible to structurally prevent DDoS attacks? Apart from CloudFlare-like approaches, are there any R&amp;D in the pipeline that may kill this type of attack once and for all?<p>To me it’s incredibly infuriating to see the damage that still happens with these extremely simple techniques. Will it ever end?<p>Edit: to elaborate, I know that there are tons of insecure Internet devices and whatnot. I’m more interested in standards, and core protocol improvements that can fundamentally rid the world of these types of attacks.", time: 1631992891, type: "comment")
     }
     
     
