@@ -34,7 +34,13 @@ struct ListElementView: View {
             HStack {
                 Text(story.score != 1 ? "\(story.score) points" : "\(story.score) point").font(.system(size: 10.0))
                 Text("\u{00B7}")
-//                Text(story.comments.count != 1 ? "\(story.comments.count) comments" : "\(story.comments.count) comment").font(.system(size: 10.0))
+                Group {
+                    if (story.comments != nil) {
+                        Text(story.comments!.count != 1 ? "\(story.comments!.count) comments" : "\(story.comments!.count) comment").font(.system(size: 10.0))
+                    } else {
+                        Text("0 comments").font(.system(size: 10.0))
+                    }
+                }
             }
         }
     }
