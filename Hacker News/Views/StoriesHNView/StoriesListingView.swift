@@ -51,7 +51,9 @@ struct StoriesList: View {
                     Group {
                         if networkManager.newStories.keys.contains(id) {
                             NavigationLink(
-                                destination: DetailView(networkManager.newStories[id]!),
+                                destination: DetailView(networkManager.newStories[id]!)
+                                    .environmentObject(networkManager)
+                                ,
                                 label: {
                                     ListElementView(networkManager.newStories[id]!)
                                 })
