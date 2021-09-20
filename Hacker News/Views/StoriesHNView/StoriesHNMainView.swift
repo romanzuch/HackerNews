@@ -15,37 +15,40 @@ struct StoriesHNMainView: View {
     var body: some View {
         
         NavigationView {
-            switch selectedCategory {
             
-            case .new:
-                NewStoriesHNView()
-                    .environmentObject(networkManager)
-                    .navigationBarTitle("Stories")
-                    .navigationBarItems(trailing:
-                        MenuButton($selectedCategory)
-                    )
-            case .best:
-                BestStoriesHNView()
-                    .environmentObject(networkManager)
-                    .navigationBarTitle("Stories")
-                    .navigationBarItems(trailing:
-                        MenuButton($selectedCategory)
-                    )
-            case .top:
-                TopStoriesHNView()
-                    .environmentObject(networkManager)
-                    .navigationBarTitle("Stories")
-                    .navigationBarItems(trailing:
-                        MenuButton($selectedCategory)
-                    )
+            VStack {
+                
+                Picker("", selection: $selectedCategory) {
+                    ForEach(StoryCategory.allCases, id: \.self) { cat in
+                        Text(cat.rawValue)
+                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                
+                switch selectedCategory {
+                
+                case .new:
+                    StoriesListingView(cat: .new)
+                        .environmentObject(networkManager)
+                case .best:
+                    StoriesListingView(cat: .best)
+                        .environmentObject(networkManager)
+                case .top:
+                    StoriesListingView(cat: .top)
+                        .environmentObject(networkManager)
+                    
+                }
                 
             }
+            
+            .navigationBarTitle("Stories")
+            
         }
     }
 }
 
-struct StoriesHNMainView_Previews: PreviewProvider {
-    static var previews: some View {
-        StoriesHNMainView()
-    }
-}
+//struct StoriesHNMainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StoriesHNMainView()
+//    }
+//}
