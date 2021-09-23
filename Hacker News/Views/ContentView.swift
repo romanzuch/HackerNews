@@ -48,9 +48,9 @@ struct ContentView: View {
             SavedHNMainView(userSettings)
                 .tabItem {
                     if tabSelection == 3 {
-                        Label("saved", systemImage: "opticaldiscdrive.fill")
+                        Label("saved", systemImage: "star.fill")
                     } else {
-                        Label("saved", systemImage: "opticaldiscdrive")
+                        Label("saved", systemImage: "star")
                     }
                 }.tag(3)
             
