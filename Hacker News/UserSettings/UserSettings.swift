@@ -13,6 +13,10 @@ class UserSettings: ObservableObject {
     
     @Published var savedStoryIDs: Array<Int> = []
     
+    init() {
+        self.savedStoryIDs = self.defaults.object(forKey: "savedStoryIDs") as? [Int] ?? [Int]()
+    }
+    
     
     func saveStoryToDefaults(_ story: Story) {
         
