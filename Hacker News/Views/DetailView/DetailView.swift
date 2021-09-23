@@ -8,6 +8,7 @@
 import SwiftUI
 import SafariServices
 
+/// DetailView is used to display detailed information on HackerNews stories in a seperate NavigationLink view
 struct DetailView: View {
     
     var story: Story
@@ -15,6 +16,7 @@ struct DetailView: View {
     var timeString: String
     let formatter = RelativeDateTimeFormatter()
     @EnvironmentObject var networkManager: HNNetworkManager
+    @EnvironmentObject var userSettings: UserSettings
     
     init(_ story: Story) {
         self.story = story
@@ -96,9 +98,13 @@ struct DetailView: View {
         .navigationBarItems(trailing:
             HStack {
                 Button(action: {
-                    print("starring")
+                    userSettings.saveStoryToDefaults(story)
                 }, label: {
-                    Image(systemName: "star")
+                    if (userSettings.savedStoryIDs.contains(story.id)) {
+                        Image(systemName: "star.fill")
+                    } else {
+                        Image(systemName: "star")
+                    }
                 })
                 Button(action: {
                     print("starring")

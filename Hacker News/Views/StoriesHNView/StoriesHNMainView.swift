@@ -10,6 +10,7 @@ import SwiftUI
 struct StoriesHNMainView: View {
     
     @EnvironmentObject var networkManager: HNNetworkManager
+    @EnvironmentObject var userSettings: UserSettings
     @State private var selectedCategory: StoryCategory = .new
     
     var body: some View {
@@ -30,12 +31,15 @@ struct StoriesHNMainView: View {
                 case .new:
                     StoriesListingView(cat: .new)
                         .environmentObject(networkManager)
+                        .environmentObject(userSettings)
                 case .best:
                     StoriesListingView(cat: .best)
                         .environmentObject(networkManager)
+                        .environmentObject(userSettings)
                 case .top:
                     StoriesListingView(cat: .top)
                         .environmentObject(networkManager)
+                        .environmentObject(userSettings)
                     
                 }
                 

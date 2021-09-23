@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State var tabSelection = 0
     @EnvironmentObject var networkManager: HNNetworkManager
+    @EnvironmentObject var userSettings: UserSettings
     
     var body: some View {
         TabView(selection: $tabSelection) {
@@ -24,6 +25,7 @@ struct ContentView: View {
                     }
                 }.tag(0)
                 .environmentObject(networkManager)
+                .environmentObject(userSettings)
             
             AskHNMainView()
                 .tabItem {
@@ -43,12 +45,12 @@ struct ContentView: View {
                     }
                 }.tag(2)
             
-            JobsHNMainView()
+            SavedHNMainView(userSettings)
                 .tabItem {
                     if tabSelection == 3 {
-                        Label("jobs", systemImage: "graduationcap.fill")
+                        Label("saved", systemImage: "opticaldiscdrive.fill")
                     } else {
-                        Label("jobs", systemImage: "graduationcap")
+                        Label("saved", systemImage: "opticaldiscdrive")
                     }
                 }.tag(3)
             
@@ -60,6 +62,7 @@ struct ContentView: View {
                         Label("settings", systemImage: "gearshape")
                     }
                 }.tag(4)
+                .environmentObject(userSettings)
             
         }
     }
@@ -70,5 +73,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(HNNetworkManager())
+            .environmentObject(UserSettings())
     }
 }

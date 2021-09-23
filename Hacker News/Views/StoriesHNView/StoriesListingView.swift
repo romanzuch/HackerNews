@@ -10,6 +10,7 @@ import SwiftUI
 struct StoriesListingView: View {
     
     @EnvironmentObject var networkManager: HNNetworkManager
+    @EnvironmentObject var userSettings: UserSettings
     var selectedCategory: StoryCategory
     
     init(cat: StoryCategory) {
@@ -22,12 +23,15 @@ struct StoriesListingView: View {
         case .new:
             StoriesList(StoryCategory.new, style: .inset)
                 .environmentObject(networkManager)
+                .environmentObject(userSettings)
         case .best:
             StoriesList(StoryCategory.best, style: .inset)
                 .environmentObject(networkManager)
+                .environmentObject(userSettings)
         case .top:
             StoriesList(StoryCategory.top, style: .inset)
                 .environmentObject(networkManager)
+                .environmentObject(userSettings)
         }
         
     }
@@ -36,6 +40,7 @@ struct StoriesListingView: View {
 struct StoriesList<S>: View where S: ListStyle{
     
     @EnvironmentObject var networkManager: HNNetworkManager
+    @EnvironmentObject var userSettings: UserSettings
     var category: StoryCategory
     var listStyle: S
     
@@ -56,6 +61,7 @@ struct StoriesList<S>: View where S: ListStyle{
                                 NavigationLink(
                                     destination: DetailView(networkManager.newStories[id]!)
                                         .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
                                     ,
                                     label: {
                                         ListElementView(networkManager.newStories[id]!)
@@ -87,6 +93,7 @@ struct StoriesList<S>: View where S: ListStyle{
                                 NavigationLink(
                                     destination: DetailView(networkManager.newStories[id]!)
                                         .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
                                     ,
                                     label: {
                                         ListElementView(networkManager.newStories[id]!)
@@ -116,7 +123,10 @@ struct StoriesList<S>: View where S: ListStyle{
                         Group {
                             if networkManager.bestStories.keys.contains(id) {
                                 NavigationLink(
-                                    destination: DetailView(networkManager.bestStories[id]!),
+                                    destination: DetailView(networkManager.bestStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
                                     label: {
                                         ListElementView(networkManager.bestStories[id]!)
                                     })
@@ -145,7 +155,10 @@ struct StoriesList<S>: View where S: ListStyle{
                         Group {
                             if networkManager.bestStories.keys.contains(id) {
                                 NavigationLink(
-                                    destination: DetailView(networkManager.bestStories[id]!),
+                                    destination: DetailView(networkManager.bestStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
                                     label: {
                                         ListElementView(networkManager.bestStories[id]!)
                                     })
@@ -174,7 +187,10 @@ struct StoriesList<S>: View where S: ListStyle{
                         Group {
                             if networkManager.topStories.keys.contains(id) {
                                 NavigationLink(
-                                    destination: DetailView(networkManager.topStories[id]!),
+                                    destination: DetailView(networkManager.topStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
                                     label: {
                                         ListElementView(networkManager.topStories[id]!)
                                     })
@@ -203,7 +219,10 @@ struct StoriesList<S>: View where S: ListStyle{
                         Group {
                             if networkManager.topStories.keys.contains(id) {
                                 NavigationLink(
-                                    destination: DetailView(networkManager.topStories[id]!),
+                                    destination: DetailView(networkManager.topStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
                                     label: {
                                         ListElementView(networkManager.topStories[id]!)
                                     })

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsHNMainView: View {
+    
+    @EnvironmentObject var userSettings: UserSettings
+    
     var body: some View {
         NavigationView {
             Text("settings")
