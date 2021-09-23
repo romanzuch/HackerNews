@@ -20,108 +20,208 @@ struct StoriesListingView: View {
         
         switch selectedCategory {
         case .new:
-            StoriesList(StoryCategory.new)
+            StoriesList(StoryCategory.new, style: .inset)
                 .environmentObject(networkManager)
         case .best:
-            StoriesList(StoryCategory.best)
+            StoriesList(StoryCategory.best, style: .inset)
                 .environmentObject(networkManager)
         case .top:
-            StoriesList(StoryCategory.top)
+            StoriesList(StoryCategory.top, style: .inset)
                 .environmentObject(networkManager)
         }
         
     }
 }
 
-struct StoriesList: View {
+struct StoriesList<S>: View where S: ListStyle{
     
     @EnvironmentObject var networkManager: HNNetworkManager
     var category: StoryCategory
+    var listStyle: S
     
-    init(_ cat: StoryCategory) {
+    init(_ cat: StoryCategory, style: S) {
         self.category = cat
+        self.listStyle = style
     }
     
     var body: some View {
         switch category {
         case .new:
-            List {
+            if #available(iOS 15, *) {
+                List {
 
-                ForEach(networkManager.newStoryIDs, id: \.self) { id in
-                    Group {
-                        if networkManager.newStories.keys.contains(id) {
-                            NavigationLink(
-                                destination: DetailView(networkManager.newStories[id]!)
-                                    .environmentObject(networkManager)
-                                ,
-                                label: {
-                                    ListElementView(networkManager.newStories[id]!)
-                                })
-                                .unredacted()
-                        } else {
-                            Text(networkManager.newStories.keys.contains(id) ? "\(networkManager.newStories[id]!.title)" : "ListElementPlaceholderText")
-                                .redacted(reason: .placeholder)
+                    ForEach(networkManager.newStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.newStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.newStories[id]!)
+                                        .environmentObject(networkManager)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.newStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.newStories.keys.contains(id) ? "\(networkManager.newStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
                         }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .new)
+                            }
                     }
-                        .onAppear {
-                            networkManager.requestStory(id, cat: .new)
-                        }
                 }
-            }
-            .onAppear {
-                networkManager.request(.newStoriesURL)
+                .onAppear {
+                    networkManager.request(.newStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.newStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.newStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.newStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.newStories[id]!)
+                                        .environmentObject(networkManager)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.newStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.newStories.keys.contains(id) ? "\(networkManager.newStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .new)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.newStoriesURL)
+                }
+                .listStyle(listStyle)
             }
             
         case .best:
-            List {
+            if #available(iOS 15, *) {
+                List {
 
-                ForEach(networkManager.bestStoryIDs, id: \.self) { id in
-                    Group {
-                        if networkManager.bestStories.keys.contains(id) {
-                            NavigationLink(
-                                destination: DetailView(networkManager.bestStories[id]!),
-                                label: {
-                                    ListElementView(networkManager.bestStories[id]!)
-                                })
-                                .unredacted()
-                        } else {
-                            Text(networkManager.bestStories.keys.contains(id) ? "\(networkManager.bestStories[id]!.title)" : "ListElementPlaceholderText")
-                                .redacted(reason: .placeholder)
+                    ForEach(networkManager.bestStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.bestStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.bestStories[id]!),
+                                    label: {
+                                        ListElementView(networkManager.bestStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.bestStories.keys.contains(id) ? "\(networkManager.bestStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
                         }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .best)
+                            }
                     }
-                        .onAppear {
-                            networkManager.requestStory(id, cat: .best)
-                        }
                 }
-            }
-            .onAppear {
-                networkManager.request(.bestStoriesURL)
+                .onAppear {
+                    networkManager.request(.bestStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.bestStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.bestStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.bestStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.bestStories[id]!),
+                                    label: {
+                                        ListElementView(networkManager.bestStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.bestStories.keys.contains(id) ? "\(networkManager.bestStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .best)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.bestStoriesURL)
+                }
+                .listStyle(listStyle)
             }
             
         case .top:
-            List {
+            if #available(iOS 15, *) {
+                List {
 
-                ForEach(networkManager.topStoryIDs, id: \.self) { id in
-                    Group {
-                        if networkManager.topStories.keys.contains(id) {
-                            NavigationLink(
-                                destination: DetailView(networkManager.topStories[id]!),
-                                label: {
-                                    ListElementView(networkManager.topStories[id]!)
-                                })
-                                .unredacted()
-                        } else {
-                            Text(networkManager.topStories.keys.contains(id) ? "\(networkManager.topStories[id]!.title)" : "ListElementPlaceholderText")
-                                .redacted(reason: .placeholder)
+                    ForEach(networkManager.topStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.topStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.topStories[id]!),
+                                    label: {
+                                        ListElementView(networkManager.topStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.topStories.keys.contains(id) ? "\(networkManager.topStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
                         }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .top)
+                            }
                     }
-                        .onAppear {
-                            networkManager.requestStory(id, cat: .top)
-                        }
                 }
-            }
-            .onAppear {
-                networkManager.request(.topStoriesURL)
+                .onAppear {
+                    networkManager.request(.topStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.topStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.topStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.topStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.topStories[id]!),
+                                    label: {
+                                        ListElementView(networkManager.topStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.topStories.keys.contains(id) ? "\(networkManager.topStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .top)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.topStoriesURL)
+                }
+                .listStyle(listStyle)
             }
         }
     }
