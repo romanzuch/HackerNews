@@ -37,23 +37,46 @@ struct SavedHNMainView: View {
             Group {
                 if (savedStoryData.count != 0) {
 
-                    List {
-                        ForEach(self.savedStories, id: \.self) { story in
-                            NavigationLink(
-                                destination: DetailView(story.story)
-                                    .environmentObject(networkManager)
-                                    .environmentObject(userSettings)
-                                ,
-                                label: {
-                                    SavedListElementView(story)
-                            })
+                    if #available(iOS 15, *) {
+                        List {
+                            ForEach(self.savedStories, id: \.self) { story in
+                                NavigationLink(
+                                    destination: DetailView(story.story)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        SavedListElementView(story)
+                                })
+                            }
+                            .onDelete(perform: delete)
                         }
-                        .onDelete(perform: delete)
+                        .toolbar {
+                            EditButton()
+                        }
+                        .refreshable {
+                            print("Refresh")
+                        }
+                        .listStyle(InsetListStyle())
+                    } else {
+                        List {
+                            ForEach(self.savedStories, id: \.self) { story in
+                                NavigationLink(
+                                    destination: DetailView(story.story)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        SavedListElementView(story)
+                                })
+                            }
+                            .onDelete(perform: delete)
+                        }
+                        .toolbar {
+                            EditButton()
+                        }
+                        .listStyle(InsetListStyle())
                     }
-                    .toolbar {
-                        EditButton()
-                    }
-                    .listStyle(InsetListStyle())
                     
                 } else {
                     
