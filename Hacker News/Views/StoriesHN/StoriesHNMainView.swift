@@ -19,12 +19,7 @@ struct StoriesHNMainView: View {
             
             VStack {
                 
-                Picker("", selection: $selectedCategory) {
-                    ForEach(StoryCategory.allCases, id: \.self) { cat in
-                        Text(cat.rawValue)
-                    }
-                }
-                .pickerStyle(SegmentedPickerStyle())
+                SelectionPickerView($selectedCategory)
                 
                 switch selectedCategory {
                 
@@ -32,12 +27,29 @@ struct StoriesHNMainView: View {
                     StoriesListingView(cat: .new)
                         .environmentObject(networkManager)
                         .environmentObject(userSettings)
+                    
                 case .best:
                     StoriesListingView(cat: .best)
                         .environmentObject(networkManager)
                         .environmentObject(userSettings)
+                    
                 case .top:
                     StoriesListingView(cat: .top)
+                        .environmentObject(networkManager)
+                        .environmentObject(userSettings)
+                    
+                case .ask:
+                    StoriesListingView(cat: .ask)
+                        .environmentObject(networkManager)
+                        .environmentObject(userSettings)
+                    
+                case .show:
+                    StoriesListingView(cat: .show)
+                        .environmentObject(networkManager)
+                        .environmentObject(userSettings)
+                    
+                case .job:
+                    StoriesListingView(cat: .job)
                         .environmentObject(networkManager)
                         .environmentObject(userSettings)
                     

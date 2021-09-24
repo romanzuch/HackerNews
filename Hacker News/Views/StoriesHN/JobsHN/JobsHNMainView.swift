@@ -9,10 +9,7 @@ import SwiftUI
 
 struct JobsHNMainView: View {
     var body: some View {
-        NavigationView {
-            Text("jobs")
-            .navigationBarTitle("jobs")
-        }
+        Text("jobs")
     }
 }
 

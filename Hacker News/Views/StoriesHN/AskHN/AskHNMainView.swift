@@ -9,10 +9,7 @@ import SwiftUI
 
 struct AskHNMainView: View {
     var body: some View {
-        NavigationView {
-            Text("ask")
-                .navigationBarTitle("ask")
-        }
+        Text("ask")
     }
 }
 

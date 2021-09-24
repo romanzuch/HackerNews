@@ -24,12 +24,29 @@ struct StoriesListingView: View {
             StoriesList(StoryCategory.new, style: .inset)
                 .environmentObject(networkManager)
                 .environmentObject(userSettings)
+            
         case .best:
             StoriesList(StoryCategory.best, style: .inset)
                 .environmentObject(networkManager)
                 .environmentObject(userSettings)
+            
         case .top:
             StoriesList(StoryCategory.top, style: .inset)
+                .environmentObject(networkManager)
+                .environmentObject(userSettings)
+            
+        case .ask:
+            StoriesList(StoryCategory.ask, style: .inset)
+                .environmentObject(networkManager)
+                .environmentObject(userSettings)
+            
+        case .show:
+            StoriesList(StoryCategory.show, style: .inset)
+                .environmentObject(networkManager)
+                .environmentObject(userSettings)
+            
+        case .job:
+            StoriesList(StoryCategory.job, style: .inset)
                 .environmentObject(networkManager)
                 .environmentObject(userSettings)
         }
@@ -242,6 +259,199 @@ struct StoriesList<S>: View where S: ListStyle{
                 }
                 .listStyle(listStyle)
             }
+            
+        case .ask:
+            if #available(iOS 15, *) {
+                List {
+
+                    ForEach(networkManager.askStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.askStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.askStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.askStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.askStories.keys.contains(id) ? "\(networkManager.askStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .ask)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.askStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.askStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.askStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.askStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.askStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.askStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.askStories.keys.contains(id) ? "\(networkManager.askStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .ask)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.askStoriesURL)
+                }
+                .listStyle(listStyle)
+            }
+            
+        case .show:
+            if #available(iOS 15, *) {
+                List {
+
+                    ForEach(networkManager.showStoriesIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.showStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.showStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.showStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.showStories.keys.contains(id) ? "\(networkManager.showStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .show)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.showStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.showStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.showStoriesIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.showStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.showStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.showStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.showStories.keys.contains(id) ? "\(networkManager.showStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .show)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.showStoriesURL)
+                }
+                .listStyle(listStyle)
+            }
+            
+        case .job:
+            if #available(iOS 15, *) {
+                List {
+
+                    ForEach(networkManager.jobStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.jobStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.jobStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.jobStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.jobStories.keys.contains(id) ? "\(networkManager.jobStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .job)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.jobStoriesURL)
+                }
+                .refreshable {
+                    networkManager.request(.jobStoriesURL)
+                }
+                .listStyle(listStyle)
+            } else {
+                List {
+
+                    ForEach(networkManager.jobStoryIDs, id: \.self) { id in
+                        Group {
+                            if networkManager.jobStories.keys.contains(id) {
+                                NavigationLink(
+                                    destination: DetailView(networkManager.jobStories[id]!)
+                                        .environmentObject(networkManager)
+                                        .environmentObject(userSettings)
+                                    ,
+                                    label: {
+                                        ListElementView(networkManager.jobStories[id]!)
+                                    })
+                                    .unredacted()
+                            } else {
+                                Text(networkManager.jobStories.keys.contains(id) ? "\(networkManager.jobStories[id]!.title)" : "ListElementPlaceholderText")
+                                    .redacted(reason: .placeholder)
+                            }
+                        }
+                            .onAppear {
+                                networkManager.requestStory(id, cat: .job)
+                            }
+                    }
+                }
+                .onAppear {
+                    networkManager.request(.jobStoriesURL)
+                }
+                .listStyle(listStyle)
+            }
+            
         }
     }
 }

@@ -27,23 +27,23 @@ struct ContentView: View {
                 .environmentObject(networkManager)
                 .environmentObject(userSettings)
             
-            AskHNMainView()
-                .tabItem {
-                    if tabSelection == 1 {
-                        Label("ask", systemImage: "bubble.left.and.bubble.right.fill")
-                    } else {
-                        Label("ask", systemImage: "bubble.left.and.bubble.right")
-                    }
-                }.tag(1)
+//            AskHNMainView()
+//                .tabItem {
+//                    if tabSelection == 1 {
+//                        Label("ask", systemImage: "bubble.left.and.bubble.right.fill")
+//                    } else {
+//                        Label("ask", systemImage: "bubble.left.and.bubble.right")
+//                    }
+//                }.tag(1)
             
-            ShowHNMainView()
-                .tabItem {
-                    if tabSelection == 2 {
-                        Label("show", systemImage: "eye.fill")
-                    } else {
-                        Label("show", systemImage: "eye")
-                    }
-                }.tag(2)
+//            ShowHNMainView()
+//                .tabItem {
+//                    if tabSelection == 2 {
+//                        Label("show", systemImage: "eye.fill")
+//                    } else {
+//                        Label("show", systemImage: "eye")
+//                    }
+//                }.tag(2)
             
             SavedHNMainView(userSettings)
                 .tabItem {
@@ -52,7 +52,7 @@ struct ContentView: View {
                     } else {
                         Label("saved", systemImage: "star")
                     }
-                }.tag(3)
+                }.tag(1)
             
             SettingsHNMainView()
                 .tabItem {
@@ -61,7 +61,7 @@ struct ContentView: View {
                     } else {
                         Label("settings", systemImage: "gearshape")
                     }
-                }.tag(4)
+                }.tag(2)
                 .environmentObject(userSettings)
             
         }

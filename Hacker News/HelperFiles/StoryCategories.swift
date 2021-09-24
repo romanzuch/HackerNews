@@ -11,4 +11,7 @@ enum StoryCategory: String, CaseIterable {
     case new = "new"
     case best = "best"
     case top = "top"
+    case ask = "ask"
+    case show = "show"
+    case job = "job"
 }

@@ -15,6 +15,7 @@ struct DetailView: View {
     let dateFormatter = DateFormatter()
     var timeString: String
     let formatter = RelativeDateTimeFormatter()
+    var storyData = Data()
     @EnvironmentObject var networkManager: HNNetworkManager
     @EnvironmentObject var userSettings: UserSettings
     
@@ -26,6 +27,11 @@ struct DetailView: View {
         self.dateFormatter.timeZone = .current
         formatter.unitsStyle = .short
         self.timeString = formatter.localizedString(for: Date(timeIntervalSince1970: TimeInterval(story.time)), relativeTo: Date())
+        do {
+            self.storyData = try JSONEncoder().encode(story)
+        } catch {
+            print("Unable to encode story.")
+        }
     }
     
     var body: some View {
@@ -98,9 +104,9 @@ struct DetailView: View {
         .navigationBarItems(trailing:
             HStack {
                 Button(action: {
-                    userSettings.saveStoryToDefaults(story)
+                    userSettings.saveStoryToDefaults(story, time: Date())
                 }, label: {
-                    if (userSettings.savedStoryIDs.contains(story.id)) {
+                    if (userSettings.savedStories.contains(storyData)) {
                         Image(systemName: "star.fill")
                     } else {
                         Image(systemName: "star")
