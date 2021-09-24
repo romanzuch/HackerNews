@@ -24,7 +24,6 @@ class UserSettings: ObservableObject {
         
         DispatchQueue.main.async { [self] in
             let encoder = JSONEncoder()
-            let decoder = JSONDecoder()
             
 
             if savedStoryIDs.contains(story.id) {
