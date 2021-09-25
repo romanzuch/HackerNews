@@ -49,14 +49,14 @@ struct SavedHNMainView: View {
                                         SavedListElementView(story)
                                 })
                             }
-                            .onDelete(perform: delete)
+//                            .onDelete(perform: delete)
                         }
-                        .toolbar {
-                            EditButton()
-                        }
-                        .refreshable {
-                            print("Refresh")
-                        }
+//                        .toolbar {
+//                            EditButton()
+//                        }
+//                        .refreshable {
+//                            print("Refresh")
+//                        }
                         .listStyle(InsetListStyle())
                     } else {
                         List {
@@ -70,11 +70,11 @@ struct SavedHNMainView: View {
                                         SavedListElementView(story)
                                 })
                             }
-                            .onDelete(perform: delete)
+//                            .onDelete(perform: delete)
                         }
-                        .toolbar {
-                            EditButton()
-                        }
+//                        .toolbar {
+//                            EditButton()
+//                        }
                         .listStyle(InsetListStyle())
                     }
                     

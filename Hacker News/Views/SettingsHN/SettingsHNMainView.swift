@@ -13,7 +13,21 @@ struct SettingsHNMainView: View {
     
     var body: some View {
         NavigationView {
-            Text("settings")
+            VStack {
+                List {
+                    Section(header: Text("App settings")) {
+                        NavigationLink(
+                            destination: Text("Setting View"),
+                            label: {
+                                SettingListElement(icon: "globe", title: "Browser", setting: userSettings.browserSetting.rawValue)
+                            }
+                        )
+                    }
+                }
+                .listStyle(InsetListStyle())
+                Spacer()
+                Signature()
+            }
             .navigationBarTitle("settings")
         }
     }

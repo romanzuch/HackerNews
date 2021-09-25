@@ -14,6 +14,8 @@ class UserSettings: ObservableObject {
     @Published var savedStoryIDs: Array<Int> = []
     @Published var savedStories: [Data] = []
     
+    @Published var browserSetting: BrowserSetting = .safari
+    
     init() {
         self.savedStories = self.defaults.object(forKey: "savedStories") as? [Data] ?? [Data]()
         self.savedStoryIDs = self.defaults.object(forKey: "savedStoryIDs") as? [Int] ?? [Int]()
@@ -23,22 +25,31 @@ class UserSettings: ObservableObject {
     func saveStoryToDefaults(_ story: Story, time: Date) {
         
         DispatchQueue.main.async { [self] in
+            
             let encoder = JSONEncoder()
             
 
             if savedStoryIDs.contains(story.id) {
+                
                 removeStoryFromDefaults(story)
+                
             } else {
+                
                 let storyToSave = SavedStory(time: time, story: story)
+                
                 do {
+                    
                     print("Saving story.")
                     let data = try encoder.encode(storyToSave)
                     savedStoryIDs.append(story.id)
                     savedStories.append(data)
                     defaults.set(savedStories, forKey: "savedStories")
                     defaults.set(savedStoryIDs, forKey: "savedStoryIDs")
+                    
                 } catch {
+                    
                     print("Unable to encode story...")
+                    
                 }
             }
             
