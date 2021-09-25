@@ -11,6 +11,7 @@ struct SavedHNMainView: View {
     
     @EnvironmentObject var userSettings: UserSettings
     @EnvironmentObject var networkManager: HNNetworkManager
+    @Environment(\.openURL) var openURL
     let savedStoryData: Array<Data>
     let savedStories: Array<SavedStory>
     let encoder = JSONEncoder()
@@ -48,16 +49,19 @@ struct SavedHNMainView: View {
                                     label: {
                                         SavedListElementView(story)
                                 })
+                                .contextMenu {
+                                    
+                                    ContextMenu(story: story.story)
+                                        .environmentObject(userSettings)
+                                    
+                                }
+                                
                             }
-//                            .onDelete(perform: delete)
+                            
                         }
-//                        .toolbar {
-//                            EditButton()
-//                        }
-//                        .refreshable {
-//                            print("Refresh")
-//                        }
+                        
                         .listStyle(InsetListStyle())
+                        
                     } else {
                         List {
                             ForEach(self.savedStories, id: \.self) { story in
@@ -70,11 +74,9 @@ struct SavedHNMainView: View {
                                         SavedListElementView(story)
                                 })
                             }
-//                            .onDelete(perform: delete)
+
                         }
-//                        .toolbar {
-//                            EditButton()
-//                        }
+                        
                         .listStyle(InsetListStyle())
                     }
                     

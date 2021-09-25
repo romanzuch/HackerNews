@@ -13,6 +13,7 @@ struct ListElementView: View {
     let dateFormatter = DateFormatter()
     var timeString: String
     let formatter = RelativeDateTimeFormatter()
+    @EnvironmentObject var userSettings: UserSettings
     
     init(_ story: Story) {
         self.story = story
@@ -42,6 +43,12 @@ struct ListElementView: View {
                     }
                 }
             }
+        }
+        .contextMenu {
+            
+            ContextMenu(story: story)
+                .environmentObject(userSettings)
+            
         }
     }
 }

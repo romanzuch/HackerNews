@@ -37,6 +37,8 @@
 		309C81F626F69DD20092D42C /* ListElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81F526F69DD20092D42C /* ListElementView.swift */; };
 		309C81FD26F6AA760092D42C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81FC26F6AA760092D42C /* DetailView.swift */; };
 		309C81FF26F6AEED0092D42C /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309C81FE26F6AEED0092D42C /* ResponseType.swift */; };
+		30C3E12726FF90C70014B130 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3E12626FF90C70014B130 /* ShareViewController.swift */; };
+		30C3E12926FF94CF0014B130 /* ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C3E12826FF94CF0014B130 /* ContextMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		309C81F526F69DD20092D42C /* ListElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElementView.swift; sourceTree = "<group>"; };
 		309C81FC26F6AA760092D42C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		309C81FE26F6AEED0092D42C /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
+		30C3E12626FF90C70014B130 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		30C3E12826FF94CF0014B130 /* ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,8 @@
 				309C81EA26F6825C0092D42C /* StoryCategories.swift */,
 				309C81F226F695E40092D42C /* NetworkError.swift */,
 				309C81FE26F6AEED0092D42C /* ResponseType.swift */,
+				30C3E12626FF90C70014B130 /* ShareViewController.swift */,
+				30C3E12826FF94CF0014B130 /* ContextMenu.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				305FDAD226FE0AEC001C28A3 /* SelectionPill.swift in Sources */,
 				309C81CE26F656500092D42C /* SettingsHNMainView.swift in Sources */,
 				305FDAD726FE3433001C28A3 /* SavedListElementView.swift in Sources */,
+				30C3E12926FF94CF0014B130 /* ContextMenu.swift in Sources */,
 				309C81C326F6560F0092D42C /* StoriesHNMainView.swift in Sources */,
 				309C81DB26F661DF0092D42C /* JobResponseType.swift in Sources */,
 				3025C91326F8F8B30036A061 /* StoriesListingView.swift in Sources */,
@@ -361,6 +368,7 @@
 				309C81CA26F6563F0092D42C /* ShowHNMainView.swift in Sources */,
 				305FDAD526FE3237001C28A3 /* SavedStoryType.swift in Sources */,
 				30281E0A26FF2447005CDE22 /* Signature.swift in Sources */,
+				30C3E12726FF90C70014B130 /* ShareViewController.swift in Sources */,
 				309C81D726F65C5E0092D42C /* StoryResponseType.swift in Sources */,
 				309C81EB26F6825C0092D42C /* StoryCategories.swift in Sources */,
 				309C81CC26F656460092D42C /* JobsHNMainView.swift in Sources */,

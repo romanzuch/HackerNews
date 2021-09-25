@@ -82,6 +82,7 @@ struct StoriesList<S>: View where S: ListStyle{
                                     ,
                                     label: {
                                         ListElementView(networkManager.newStories[id]!)
+                                            .environmentObject(userSettings)
                                     })
                                     .unredacted()
                             } else {
