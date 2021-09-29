@@ -9,22 +9,23 @@ import SwiftUI
 
 struct StoriesView: View {
     
-    @EnvironmentObject var networkManager: NetworkManager
+    @ObservedObject var storyVM: StoryViewModel = StoryViewModel()
     
     var body: some View {
         
         NavigationView {
             
             List {
-                ForEach(networkManager.stories.new, id: \.self) { story in
+                ForEach(storyVM.newStories, id: \.self) { story in
                     NavigationLink(destination: {
-                        Text("Destination")
+                        Text(story.title)
                     }, label: {
                         StoryView(story: story)
                     })
                 }
             }
             .listStyle(InsetListStyle())
+            
             .navigationTitle("Stories")
         }
         
