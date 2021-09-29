@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE22704DE2C00F5A141 /* StoriesView.swift */; };
+		30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE42704DEFE00F5A141 /* SavedView.swift */; };
+		30349EE82704E16000F5A141 /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE72704E16000F5A141 /* StoryView.swift */; };
 		3057AC9D2701F94C0091AC4E /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057AC9C2701F94C0091AC4E /* HackerNewsApp.swift */; };
 		3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057AC9E2701F94C0091AC4E /* ContentView.swift */; };
 		3057ACA12701F94D0091AC4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3057ACA02701F94D0091AC4E /* Assets.xcassets */; };
 		3057ACA42701F94D0091AC4E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3057ACA32701F94D0091AC4E /* Preview Assets.xcassets */; };
+		3057ACAC2701FA140091AC4E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057ACAB2701FA140091AC4E /* NetworkManager.swift */; };
+		3057ACAE2701FA500091AC4E /* StoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057ACAD2701FA500091AC4E /* StoryList.swift */; };
+		3057ACB02701FA750091AC4E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057ACAF2701FA750091AC4E /* Story.swift */; };
+		3057ACB22701FC3D0091AC4E /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3057ACB12701FC3D0091AC4E /* testData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30349EE22704DE2C00F5A141 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
+		30349EE42704DEFE00F5A141 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
+		30349EE72704E16000F5A141 /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		3057AC992701F94C0091AC4E /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3057AC9C2701F94C0091AC4E /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
 		3057AC9E2701F94C0091AC4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3057ACA02701F94D0091AC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3057ACA32701F94D0091AC4E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3057ACAB2701FA140091AC4E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3057ACAD2701FA500091AC4E /* StoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryList.swift; sourceTree = "<group>"; };
+		3057ACAF2701FA750091AC4E /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		3057ACB12701FC3D0091AC4E /* testData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +46,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30349EDD2704DE0000F5A141 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				30349EE12704DE1E00F5A141 /* Settings */,
+				30349EE02704DE1A00F5A141 /* Saved */,
+				30349EDF2704DE1400F5A141 /* Story */,
+				30349EDE2704DE0700F5A141 /* Stories */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		30349EDE2704DE0700F5A141 /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				30349EE22704DE2C00F5A141 /* StoriesView.swift */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		30349EDF2704DE1400F5A141 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				30349EE72704E16000F5A141 /* StoryView.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		30349EE02704DE1A00F5A141 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				30349EE42704DEFE00F5A141 /* SavedView.swift */,
+			);
+			path = Saved;
+			sourceTree = "<group>";
+		};
+		30349EE12704DE1E00F5A141 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		30349EE62704E05900F5A141 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		3057AC902701F94B0091AC4E = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +114,9 @@
 		3057AC9B2701F94C0091AC4E /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				30349EE62704E05900F5A141 /* ViewModels */,
+				30349EDD2704DE0000F5A141 /* Views */,
+				3057ACAA2701FA080091AC4E /* NetworkManager */,
 				3057AC9C2701F94C0091AC4E /* HackerNewsApp.swift */,
 				3057AC9E2701F94C0091AC4E /* ContentView.swift */,
 				3057ACA02701F94D0091AC4E /* Assets.xcassets */,
@@ -65,6 +131,17 @@
 				3057ACA32701F94D0091AC4E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3057ACAA2701FA080091AC4E /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				3057ACB12701FC3D0091AC4E /* testData.json */,
+				3057ACAB2701FA140091AC4E /* NetworkManager.swift */,
+				3057ACAD2701FA500091AC4E /* StoryList.swift */,
+				3057ACAF2701FA750091AC4E /* Story.swift */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3057ACB22701FC3D0091AC4E /* testData.json in Resources */,
 				3057ACA42701F94D0091AC4E /* Preview Assets.xcassets in Resources */,
 				3057ACA12701F94D0091AC4E /* Assets.xcassets in Resources */,
 			);
@@ -137,8 +215,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3057ACAC2701FA140091AC4E /* NetworkManager.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
+				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
+				30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */,
 				3057AC9D2701F94C0091AC4E /* HackerNewsApp.swift in Sources */,
+				3057ACAE2701FA500091AC4E /* StoryList.swift in Sources */,
+				30349EE82704E16000F5A141 /* StoryView.swift in Sources */,
+				3057ACB02701FA750091AC4E /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +361,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,7 +371,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +391,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +401,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
