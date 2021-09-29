@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @EnvironmentObject var networkManager: NetworkManager
     @State private var tabSelection = 0
     
     var body: some View {
@@ -22,7 +21,6 @@ struct ContentView: View {
                     Label("Stories", systemImage: "book.fill")
                 }
                 .tag(0)
-                .environmentObject(networkManager)
             
             SavedView()
                 .tabItem {
@@ -30,9 +28,6 @@ struct ContentView: View {
                 }
                 .tag(1)
             
-        }
-        .task {
-            await networkManager.request()
         }
         
     }
