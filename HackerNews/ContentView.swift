@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var tabSelection = 0
+    @EnvironmentObject var storyViewModel: StoryViewModel
     
     var body: some View {
         
@@ -21,12 +22,14 @@ struct ContentView: View {
                     Label("Stories", systemImage: "book.fill")
                 }
                 .tag(0)
+                .environmentObject(storyViewModel)
             
             SavedView()
                 .tabItem {
                     Label("Saved", systemImage: "star.fill")
                 }
                 .tag(1)
+                .environmentObject(storyViewModel)
             
         }
         

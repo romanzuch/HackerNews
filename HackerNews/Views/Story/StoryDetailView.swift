@@ -1,19 +1,20 @@
 //
-//  StoryView.swift
+//  StoryDetailView.swift
 //  HackerNews
 //
-//  Created by Roman on 29.09.21.
+//  Created by Roman on 30.09.21.
 //
 
 import SwiftUI
-import LinkPresentation
 
-struct StoryView: View {
+struct StoryDetailView: View {
     
     var url: String
     var title: String
     var commentCount: Int
     var score: Int
+    
+    @Environment(\.dismiss) var dismiss
     
     init(story: Story) {
         self.url = story.url ?? ""
@@ -26,6 +27,12 @@ struct StoryView: View {
         
         VStack(alignment: .leading) {
             
+            Button(action: {
+                dismiss()
+            }, label: {
+                Image(systemName: "xmark.circle")
+            })
+            
             if title != "" {
                 Text(title)
                     .fontWeight(.bold)
@@ -34,9 +41,7 @@ struct StoryView: View {
             }
             
             if url != "" {
-//                Link(url, destination: URL(string: url)!).font(.system(size: 12))
-                Text(url)
-                    .font(.system(size: 12))
+                Link(url, destination: URL(string: url)!).font(.system(size: 12))
             } else {
                 EmptyView()
             }

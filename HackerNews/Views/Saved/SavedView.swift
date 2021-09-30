@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SavedView: View {
+    
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    
     var body: some View {
         NavigationView {
             Text("Saved")

@@ -10,9 +10,12 @@ import SwiftUI
 @main
 struct HackerNewsApp: App {
     
+    @StateObject var storyViewModel: StoryViewModel = StoryViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(storyViewModel)
         }
     }
 }

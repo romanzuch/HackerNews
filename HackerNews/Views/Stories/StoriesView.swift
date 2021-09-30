@@ -9,22 +9,20 @@ import SwiftUI
 
 struct StoriesView: View {
     
-    @ObservedObject var storyVM: StoryViewModel = StoryViewModel()
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    @State private var selection: RequestType = .new
     
     var body: some View {
         
         NavigationView {
             
-            List {
-                ForEach(storyVM.newStories, id: \.self) { story in
-                    NavigationLink(destination: {
-                        Text(story.title)
-                    }, label: {
-                        StoryView(story: story)
-                    })
-                }
+            VStack {
+                
+                TypePicker($selection)
+                
+                StoriesListView(selection: selection)
+                
             }
-            .listStyle(InsetListStyle())
             
             .navigationTitle("Stories")
         }
