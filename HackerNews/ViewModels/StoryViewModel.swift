@@ -98,11 +98,23 @@ class StoryViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     switch type {
                     case .new:
-                        self.newStories.append(story)
+                        if self.newStories.contains(story) {
+                            return
+                        } else {
+                            self.newStories.append(story)
+                        }
                     case .top:
-                        self.topStories.append(story)
+                        if self.topStories.contains(story) {
+                            return
+                        } else {
+                            self.topStories.append(story)
+                        }
                     case .best:
-                        self.bestStories.append(story)
+                        if self.bestStories.contains(story) {
+                            return
+                        } else {
+                            self.bestStories.append(story)
+                        }
                     }
                 }
             } catch {
