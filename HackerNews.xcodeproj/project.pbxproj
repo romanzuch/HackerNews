@@ -23,6 +23,7 @@
 		30909382270632A2004BD9B4 /* ReloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30909381270632A2004BD9B4 /* ReloadButton.swift */; };
 		3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938327063F76004BD9B4 /* StoryDetailView.swift */; };
 		3090938627064988004BD9B4 /* StoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938527064988004BD9B4 /* StoriesListView.swift */; };
+		3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,7 @@
 		30349EE42704DEFE00F5A141 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		30349EE72704E16000F5A141 /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
 		30349EEB2704F6DF00F5A141 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
-		3057AC992701F94C0091AC4E /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3057AC992701F94C0091AC4E /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3057AC9C2701F94C0091AC4E /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
 		3057AC9E2701F94C0091AC4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3057ACA02701F94D0091AC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +44,7 @@
 		30909381270632A2004BD9B4 /* ReloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadButton.swift; sourceTree = "<group>"; };
 		3090938327063F76004BD9B4 /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		3090938527064988004BD9B4 /* StoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListView.swift; sourceTree = "<group>"; };
+		3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInfoBadgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				30349EE72704E16000F5A141 /* StoryRowView.swift */,
 				3090938327063F76004BD9B4 /* StoryDetailView.swift */,
+				3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -122,7 +125,7 @@
 		3057AC9A2701F94C0091AC4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3057AC992701F94C0091AC4E /* HackerNews.app */,
+				3057AC992701F94C0091AC4E /* Hacker News.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,7 +179,7 @@
 			);
 			name = HackerNews;
 			productName = HackerNews;
-			productReference = 3057AC992701F94C0091AC4E /* HackerNews.app */;
+			productReference = 3057AC992701F94C0091AC4E /* Hacker News.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */,
 				30349EEC2704F6DF00F5A141 /* StoryViewModel.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
 				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
@@ -388,7 +392,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rz.HackerNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hacker News";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -418,7 +422,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rz.HackerNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Hacker News";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

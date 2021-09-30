@@ -34,45 +34,8 @@ struct StoryRowView: View {
                 Text("No title")
             }            
             
-            HStack {
-                
-                if score != 0 {
-//                    Label("\(score)", systemImage: "star")
-//                        .font(.system(size: 10))
-                    HStack{
-                        Image(systemName: "star")
-                            .renderingMode(.template)
-                            .resizable()
-                            .frame(width: 10, height: 10)
-                        Text("\(score)")
-                            .font(.system(size: 10))
-                    }
-                } else {
-                    Image(systemName: "star")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 10, height: 10)
-                    Text("0")
-                        .font(.system(size: 10))
-                }
-                
-                if commentCount != 0 {
-                    Image(systemName: "captions.bubble")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 10, height: 10)
-                    Text("\(commentCount)")
-                        .font(.system(size: 10))
-                } else {
-                    Image(systemName: "captions.bubble")
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 10, height: 10)
-                    Text("0")
-                        .font(.system(size: 10))
-                }
-                
-            }
+            StoryInfoBadgeView(score: score, count: commentCount)
+            
         }
         
     }

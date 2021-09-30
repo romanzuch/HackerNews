@@ -40,26 +40,8 @@ struct StoryDetailView: View {
                 EmptyView()
             }
             
+            StoryInfoBadgeView(score: score, count: commentCount)
             
-            HStack {
-                
-                if score != 0 {
-                    Label("\(score)", systemImage: "star")
-                        .font(.system(size: 10))
-                        .foregroundColor(.black)
-                } else {
-                    EmptyView()
-                }
-                
-                if commentCount != 0 {
-                    Label("\(commentCount)", systemImage: "captions.bubble")
-                        .font(.system(size: 10))
-                        .foregroundColor(.black)
-                } else {
-                    EmptyView()
-                }
-                
-            }
         }
         
     }
