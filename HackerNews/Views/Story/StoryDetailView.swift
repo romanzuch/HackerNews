@@ -27,12 +27,6 @@ struct StoryDetailView: View {
         
         VStack(alignment: .leading) {
             
-            Button(action: {
-                dismiss()
-            }, label: {
-                Image(systemName: "xmark.circle")
-            })
-            
             if title != "" {
                 Text(title)
                     .fontWeight(.bold)
