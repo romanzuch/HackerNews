@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30202C7B2716142D001AC594 /* EdgeBorder.swift */; };
 		30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE22704DE2C00F5A141 /* StoriesView.swift */; };
 		30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE42704DEFE00F5A141 /* SavedView.swift */; };
 		30349EE82704E16000F5A141 /* StoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE72704E16000F5A141 /* StoryRowView.swift */; };
@@ -27,11 +28,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30202C7B2716142D001AC594 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30349EE22704DE2C00F5A141 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		30349EE42704DEFE00F5A141 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		30349EE72704E16000F5A141 /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
 		30349EEB2704F6DF00F5A141 /* StoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewModel.swift; sourceTree = "<group>"; };
-		3057AC992701F94C0091AC4E /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3057AC992701F94C0091AC4E /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3057AC9C2701F94C0091AC4E /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
 		3057AC9E2701F94C0091AC4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3057ACA02701F94D0091AC4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,9 +60,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30202C7A2716141E001AC594 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				30202C7B2716142D001AC594 /* EdgeBorder.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		30349EDD2704DE0000F5A141 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				30202C7A2716141E001AC594 /* Helpers */,
 				30349EE12704DE1E00F5A141 /* Settings */,
 				30349EE02704DE1A00F5A141 /* Saved */,
 				30349EDF2704DE1400F5A141 /* Story */,
@@ -125,7 +136,7 @@
 		3057AC9A2701F94C0091AC4E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3057AC992701F94C0091AC4E /* Hacker News.app */,
+				3057AC992701F94C0091AC4E /* HackerNews.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,7 +190,7 @@
 			);
 			name = HackerNews;
 			productName = HackerNews;
-			productReference = 3057AC992701F94C0091AC4E /* Hacker News.app */;
+			productReference = 3057AC992701F94C0091AC4E /* HackerNews.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -237,6 +248,7 @@
 				30349EEC2704F6DF00F5A141 /* StoryViewModel.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
 				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
+				30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */,
 				3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */,
 				30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */,
 				3057AC9D2701F94C0091AC4E /* HackerNewsApp.swift in Sources */,
@@ -392,7 +404,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rz.HackerNews;
-				PRODUCT_NAME = "Hacker News";
+				PRODUCT_NAME = HackerNews;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -422,7 +434,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = rz.HackerNews;
-				PRODUCT_NAME = "Hacker News";
+				PRODUCT_NAME = HackerNews;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
