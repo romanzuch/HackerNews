@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30202C7B2716142D001AC594 /* EdgeBorder.swift */; };
+		30202C7E271620BC001AC594 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30202C7D271620BC001AC594 /* ShareViewController.swift */; };
 		30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE22704DE2C00F5A141 /* StoriesView.swift */; };
 		30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE42704DEFE00F5A141 /* SavedView.swift */; };
 		30349EE82704E16000F5A141 /* StoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE72704E16000F5A141 /* StoryRowView.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		30202C7B2716142D001AC594 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
+		30202C7D271620BC001AC594 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		30349EE22704DE2C00F5A141 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		30349EE42704DEFE00F5A141 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		30349EE72704E16000F5A141 /* StoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRowView.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				30202C7B2716142D001AC594 /* EdgeBorder.swift */,
+				30202C7D271620BC001AC594 /* ShareViewController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */,
 				30349EEC2704F6DF00F5A141 /* StoryViewModel.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
+				30202C7E271620BC001AC594 /* ShareViewController.swift in Sources */,
 				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
 				30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */,
 				3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */,
