@@ -15,6 +15,9 @@ class StoryViewModel: ObservableObject {
     @Published var topStories: [Story] = []
     @Published var bestStories: [Story] = []
     
+    // saved stories
+    @Published var savedStories: [Story] = []
+    
     // list limits
     @Published var newLimitHigh: Int = 20
     @Published var newLimitLow: Int = 0
@@ -122,6 +125,16 @@ class StoryViewModel: ObservableObject {
             }
         }.resume()
         
+    }
+    
+    func saveStory(_ story: Story) {
+        if self.savedStories.contains(story) {
+            print("Removing story from list.")
+            let indexOfStory = self.savedStories.firstIndex(of: story)
+            self.savedStories.remove(at: indexOfStory!)
+        } else {
+            self.savedStories.append(story)
+        }
     }
     
 }
