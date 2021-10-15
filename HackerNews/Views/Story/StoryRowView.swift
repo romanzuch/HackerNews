@@ -10,31 +10,31 @@ import LinkPresentation
 
 struct StoryRowView: View {
     
-    var url: String
-    var title: String
-    var commentCount: Int
-    var score: Int
+    var storyURL: String
+    var storyTitle: String
+    var storyCommentCount: Int
+    var storyScore: Int
     
     init(story: Story) {
-        self.url = story.url ?? ""
-        self.title = story.title ?? ""
-        self.commentCount = story.descendants ?? 0
-        self.score = story.score ?? 0
+        self.storyURL = story.url ?? ""
+        self.storyTitle = story.title
+        self.storyCommentCount = story.descendants ?? 0
+        self.storyScore = story.score
     }
     
     var body: some View {
         
         VStack(alignment: .leading) {
             
-            if title != "" {
-                Text(title)
+            if storyTitle != "" {
+                Text(storyTitle)
                     .fontWeight(.bold)
                     .padding(.vertical, 10)
             } else {
                 Text("No title")
             }            
             
-            StoryInfoBadgeView(score: score, count: commentCount)
+            StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
             
         }
         
