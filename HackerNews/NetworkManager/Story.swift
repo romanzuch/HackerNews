@@ -38,6 +38,7 @@ struct Story: Codable, Hashable {
         
         self.descendants = try container.decodeIfPresent(Int.self, forKey: .descendants)
         self.url = try container.decodeIfPresent(String.self, forKey: .url)
+        self.kids = try container.decodeIfPresent([Int].self, forKey: .kids)
         
     }
     
