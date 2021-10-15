@@ -26,6 +26,7 @@
 		3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938327063F76004BD9B4 /* StoryDetailView.swift */; };
 		3090938627064988004BD9B4 /* StoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938527064988004BD9B4 /* StoriesListView.swift */; };
 		3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */; };
+		30FD220D27195CED00224B5F /* CommentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD220C27195CED00224B5F /* CommentSectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		3090938327063F76004BD9B4 /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		3090938527064988004BD9B4 /* StoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListView.swift; sourceTree = "<group>"; };
 		3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInfoBadgeView.swift; sourceTree = "<group>"; };
+		30FD220C27195CED00224B5F /* CommentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				30349EE72704E16000F5A141 /* StoryRowView.swift */,
 				3090938327063F76004BD9B4 /* StoryDetailView.swift */,
 				3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */,
+				30FD220C27195CED00224B5F /* CommentSectionView.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */,
 				30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */,
 				3057AC9D2701F94C0091AC4E /* HackerNewsApp.swift in Sources */,
+				30FD220D27195CED00224B5F /* CommentSectionView.swift in Sources */,
 				3057ACAE2701FA500091AC4E /* StoryList.swift in Sources */,
 				30349EE82704E16000F5A141 /* StoryRowView.swift in Sources */,
 				30909380270626E6004BD9B4 /* TypePicker.swift in Sources */,
