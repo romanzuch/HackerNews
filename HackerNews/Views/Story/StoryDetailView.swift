@@ -9,38 +9,42 @@ import SwiftUI
 
 struct StoryDetailView: View {
     
-    var url: String
-    var title: String
-    var commentCount: Int
-    var score: Int
+    var storyURL: String
+    var storyTitle: String
+    var storyCommentCount: Int
+    var storyScore: Int
+    var storyCommentIDs: [Int]
     
     @Environment(\.dismiss) var dismiss
     
     init(story: Story) {
-        self.url = story.url ?? ""
-        self.title = story.title ?? ""
-        self.commentCount = story.descendants ?? 0
-        self.score = story.score ?? 0
+        self.storyURL = story.url ?? ""
+        self.storyTitle = story.title
+        self.storyCommentCount = story.descendants ?? 0
+        self.storyScore = story.score
+        self.storyCommentIDs = story.kids ?? []
     }
     
     var body: some View {
         
         VStack(alignment: .leading) {
             
-            if title != "" {
-                Text(title)
+            if storyTitle != "" {
+                Text(storyTitle)
                     .fontWeight(.bold)
             } else {
                 EmptyView()
             }
             
-            if url != "" {
-                Link(url, destination: URL(string: url)!).font(.system(size: 12))
+            if storyURL != "" {
+                Link(storyURL, destination: URL(string: storyURL)!).font(.system(size: 12))
             } else {
                 EmptyView()
             }
             
-            StoryInfoBadgeView(score: score, count: commentCount)
+            StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
+            
+            CommentSectionView(storyCommentIDs: storyCommentIDs)
             
         }
         
