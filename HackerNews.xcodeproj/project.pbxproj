@@ -26,6 +26,7 @@
 		3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938327063F76004BD9B4 /* StoryDetailView.swift */; };
 		3090938627064988004BD9B4 /* StoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938527064988004BD9B4 /* StoriesListView.swift */; };
 		3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */; };
+		30D3AE36271BFBA6005F0B29 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3AE35271BFBA6005F0B29 /* Comment.swift */; };
 		30FD220D27195CED00224B5F /* CommentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD220C27195CED00224B5F /* CommentSectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		3090938327063F76004BD9B4 /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		3090938527064988004BD9B4 /* StoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListView.swift; sourceTree = "<group>"; };
 		3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInfoBadgeView.swift; sourceTree = "<group>"; };
+		30D3AE35271BFBA6005F0B29 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		30FD220C27195CED00224B5F /* CommentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 				3057ACB12701FC3D0091AC4E /* testData.json */,
 				3057ACAD2701FA500091AC4E /* StoryList.swift */,
 				3057ACAF2701FA750091AC4E /* Story.swift */,
+				30D3AE35271BFBA6005F0B29 /* Comment.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
 				30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */,
 				3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */,
+				30D3AE36271BFBA6005F0B29 /* Comment.swift in Sources */,
 				30349EE52704DEFE00F5A141 /* SavedView.swift in Sources */,
 				3057AC9D2701F94C0091AC4E /* HackerNewsApp.swift in Sources */,
 				30FD220D27195CED00224B5F /* CommentSectionView.swift in Sources */,
