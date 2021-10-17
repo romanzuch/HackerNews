@@ -53,16 +53,12 @@ struct StoriesListView: View {
                             }
                             .swipeActions(edge: .trailing) {
                                 
-                                if story.url == "" {
-                                    EmptyView()
-                                } else {
-                                    Button {
-                                        openURL(URL(string: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")!)
-                                    } label: {
-                                        Label("Browse", systemImage: "globe")
-                                    }
-                                    .tint(.yellow.opacity(0.35))
+                                Button {
+                                    openURL(URL(string: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")!)
+                                } label: {
+                                    Label("Browse", systemImage: "globe")
                                 }
+                                .tint(.yellow.opacity(0.35))
                                 
                             }
                     }
@@ -81,6 +77,38 @@ struct StoriesListView: View {
                         }, label: {
                             StoryRowView(story: story)
                         })
+                        
+                            .swipeActions(edge: .leading) {
+                                
+                                Button {
+                                    storyViewModel.saveStory(story)
+                                } label: {
+                                    if storyViewModel.savedStories.contains(story) {
+                                        Label("Remove", systemImage: "star.slash.fill")
+                                    } else {
+                                        Label("Save", systemImage: "star.fill")
+                                    }
+                                }
+                                .tint((storyViewModel.savedStories.contains(story)) ? .red : .green)
+                                
+                                Button {
+                                    ShareViewController().share(story.title, urlString: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")
+                                } label: {
+                                    Label("Share", systemImage: "square.and.arrow.up")
+                                }
+                                
+                            }
+                            .swipeActions(edge: .trailing) {
+                                
+                                Button {
+                                    openURL(URL(string: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")!)
+                                } label: {
+                                    Label("Browse", systemImage: "globe")
+                                }
+                                .tint(.yellow.opacity(0.35))
+                                
+                            }
+                        
                     }
                 }
                 .onAppear {
@@ -98,6 +126,38 @@ struct StoriesListView: View {
                         }, label: {
                             StoryRowView(story: story)
                         })
+                        
+                            .swipeActions(edge: .leading) {
+                                
+                                Button {
+                                    storyViewModel.saveStory(story)
+                                } label: {
+                                    if storyViewModel.savedStories.contains(story) {
+                                        Label("Remove", systemImage: "star.slash.fill")
+                                    } else {
+                                        Label("Save", systemImage: "star.fill")
+                                    }
+                                }
+                                .tint((storyViewModel.savedStories.contains(story)) ? .red : .green)
+                                
+                                Button {
+                                    ShareViewController().share(story.title, urlString: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")
+                                } label: {
+                                    Label("Share", systemImage: "square.and.arrow.up")
+                                }
+                                
+                            }
+                            .swipeActions(edge: .trailing) {
+                                
+                                Button {
+                                    openURL(URL(string: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")!)
+                                } label: {
+                                    Label("Browse", systemImage: "globe")
+                                }
+                                .tint(.yellow.opacity(0.35))
+                                
+                            }
+                        
                     }
                 }
                 .onAppear {
