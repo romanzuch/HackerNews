@@ -14,6 +14,11 @@ struct StoriesListView: View {
     @State private var showDetails: Bool = false
     @Environment(\.openURL) var openURL
     
+    // search bindings
+    @State private var searchTextNew: String = ""
+    @State private var searchTextTop: String = ""
+    @State private var searchTextBest: String = ""
+    
     init(selection: RequestType) {
         self.selection = selection
     }
@@ -66,6 +71,7 @@ struct StoriesListView: View {
                 .onAppear {
                     storyViewModel.requestStoryIDs(type: .new)
                 }
+                .searchable(text: $searchTextNew)
             }
             
         case .top:
@@ -114,6 +120,7 @@ struct StoriesListView: View {
                 .onAppear {
                     storyViewModel.requestStoryIDs(type: .top)
                 }
+                .searchable(text: $searchTextTop)
                 
             }
             
@@ -163,6 +170,7 @@ struct StoriesListView: View {
                 .onAppear {
                     storyViewModel.requestStoryIDs(type: .best)
                 }
+                .searchable(text: $searchTextBest)
                 
             }
             
