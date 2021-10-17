@@ -72,6 +72,9 @@ struct StoriesListView: View {
                     storyViewModel.requestStoryIDs(type: .new)
                 }
                 .searchable(text: $searchTextNew)
+                .refreshable {
+                    storyViewModel.refreshStoryIDs(type: .new)
+                }
             }
             
         case .top:
@@ -121,6 +124,9 @@ struct StoriesListView: View {
                     storyViewModel.requestStoryIDs(type: .top)
                 }
                 .searchable(text: $searchTextTop)
+                .refreshable {
+                    storyViewModel.refreshStoryIDs(type: .top)
+                }
                 
             }
             
@@ -171,6 +177,9 @@ struct StoriesListView: View {
                     storyViewModel.requestStoryIDs(type: .best)
                 }
                 .searchable(text: $searchTextBest)
+                .refreshable {
+                    storyViewModel.refreshStoryIDs(type: .best)
+                }
                 
             }
             
