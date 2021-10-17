@@ -29,7 +29,7 @@ struct StoriesListView: View {
         case .new:
             VStack {
                 List {
-                    ForEach(storyViewModel.newStories, id: \.self.hashValue) { story in
+                    ForEach(storyViewModel.newStories.filter{($0.title.range(of: searchTextNew, options: .caseInsensitive) != nil) || searchTextNew == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                         }, label: {
@@ -80,7 +80,7 @@ struct StoriesListView: View {
         case .top:
             VStack {
                 List {
-                    ForEach(storyViewModel.topStories, id: \.self.hashValue) { story in
+                    ForEach(storyViewModel.topStories.filter{($0.title.range(of: searchTextTop, options: .caseInsensitive) != nil) || searchTextTop == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                         }, label: {
@@ -133,7 +133,7 @@ struct StoriesListView: View {
         case .best:
             VStack {
                 List {
-                    ForEach(storyViewModel.bestStories, id: \.self.hashValue) { story in
+                    ForEach(storyViewModel.bestStories.filter{($0.title.range(of: searchTextBest, options: .caseInsensitive) != nil) || searchTextBest == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                         }, label: {
