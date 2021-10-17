@@ -13,7 +13,11 @@ struct SavedView: View {
     
     var body: some View {
         NavigationView {
-            Text("Saved")
+            List {
+                ForEach(storyViewModel.savedStories, id: \.self) { story in
+                    StoryRowView(story: story)
+                }
+            }
                 .navigationTitle("Saved Stories")
         }
     }
