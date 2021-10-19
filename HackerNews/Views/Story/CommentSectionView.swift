@@ -9,14 +9,22 @@ import SwiftUI
 
 struct CommentSectionView: View {
     
-    var storyCommentIDs: [Int]
+    let story: Story
+    @EnvironmentObject var storyViewModel: StoryViewModel
     
-    init(storyCommentIDs: [Int]) {
-        // so apparently these are only the top level comments
-        self.storyCommentIDs = storyCommentIDs
+    init(story: Story) {
+        self.story = story
     }
     
     var body: some View {
-        Text("\(storyCommentIDs.count)")
+        List {
+            ForEach(storyViewModel.storyComments, id: \.id) { comment in
+                CommentView(comment: comment)
+            }
+        }
+            .onAppear {
+                storyViewModel.requestComments(commentIDs: self.story.kids ?? [])
+            }
     }
+    
 }
