@@ -28,6 +28,8 @@ class StoryViewModel: ObservableObject {
     @Published var bestLimitHigh: Int = 20
     @Published var bestLimitLow: Int = 0
     
+    // MARK: - IDs
+    
     func requestStoryIDs(type: RequestType) {
         
         switch type {
@@ -153,6 +155,8 @@ class StoryViewModel: ObservableObject {
         
     }
     
+    // MARK: - Story
+    
     func requestStory(id storyID: Int, type: RequestType) {
         
         let decoder = JSONDecoder()
@@ -191,6 +195,8 @@ class StoryViewModel: ObservableObject {
         
     }
     
+    // MARK: - Saved stories
+    
     func saveStory(_ story: Story) {
         if self.savedStories.contains(story) {
             print("Removing story from list.")
@@ -199,6 +205,41 @@ class StoryViewModel: ObservableObject {
         } else {
             self.savedStories.append(story)
         }
+    }
+    
+    func removeStory(at offsets: IndexSet) {
+        self.savedStories.remove(at: offsets.first!)
+    }
+    
+    // MARK: - Comments
+    
+    func requestComments(commentIDs: [Int]) -> [Comment] {
+        
+        var commentsToReturn: [Comment] = []
+        let decoder: JSONDecoder = JSONDecoder()
+        print("Requesting comments.")
+        
+        for id in commentIDs {
+            
+            let url: URL = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json")!
+            
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                
+                guard let commentData = data, error == nil else { return }
+                do {
+                    let comment = try decoder.decode(Comment.self, from: commentData)
+                    DispatchQueue.main.async {
+                        commentsToReturn.append(comment)
+                    }
+                } catch {
+                    print("Decoding error:", error)
+                }
+                
+            }
+            
+        }
+        
+        return commentsToReturn
     }
     
 }

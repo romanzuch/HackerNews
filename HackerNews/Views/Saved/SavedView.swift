@@ -17,7 +17,11 @@ struct SavedView: View {
                 ForEach(storyViewModel.savedStories, id: \.self) { story in
                     StoryRowView(story: story)
                 }
+                .onDelete(perform: storyViewModel.removeStory)
             }
+            .toolbar(content: {
+                EditButton()
+            })
                 .navigationTitle("Saved Stories")
         }
     }
