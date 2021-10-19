@@ -29,7 +29,7 @@ struct Comment: Hashable, Codable {
         
         self.by = try container.decode(String.self, forKey: .by)
         self.id = try container.decode(Int.self, forKey: .id)
-        self.parent = try container.decode(Int.self, forKey: .kids)
+        self.parent = try container.decode(Int.self, forKey: .parent)
         self.time = try container.decode(Int.self, forKey: .time)
         self.text = try container.decode(String.self, forKey: .text)
         self.type = try container.decode(String.self, forKey: .type)

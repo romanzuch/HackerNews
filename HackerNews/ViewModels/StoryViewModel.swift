@@ -28,6 +28,9 @@ class StoryViewModel: ObservableObject {
     @Published var bestLimitHigh: Int = 20
     @Published var bestLimitLow: Int = 0
     
+    // story comments
+    @Published var storyComments: [Comment] = []
+    
     // MARK: - IDs
     
     func requestStoryIDs(type: RequestType) {
@@ -213,9 +216,12 @@ class StoryViewModel: ObservableObject {
     
     // MARK: - Comments
     
-    func requestComments(commentIDs: [Int]) -> [Comment] {
+    func requestComments(commentIDs: [Int]) {
         
-        var commentsToReturn: [Comment] = []
+        if storyComments != nil {
+            storyComments = []
+        }
+        
         let decoder: JSONDecoder = JSONDecoder()
         print("Requesting comments.")
         
@@ -229,17 +235,37 @@ class StoryViewModel: ObservableObject {
                 do {
                     let comment = try decoder.decode(Comment.self, from: commentData)
                     DispatchQueue.main.async {
-                        commentsToReturn.append(comment)
+                        debugPrint("Appending \(comment) to the list...")
+                        self.storyComments.append(comment)
                     }
                 } catch {
-                    print("Decoding error:", error)
+                    debugPrint("Decoding error: \(error)")
                 }
                 
-            }
+            }.resume()
             
         }
         
-        return commentsToReturn
+    }
+    
+    // MARK: - Test Data Handling
+
+    func getTestComment() -> Comment {
+        let path = Bundle.main.path(forResource: "testComment", ofType: "json")
+        var response: Comment?
+        debugPrint(path as Any)
+        let url = URL(fileURLWithPath: path!)
+        debugPrint(url)
+        do {
+            let data = try Data(contentsOf: url)
+            response = try JSONDecoder().decode(Comment.self, from: data)
+            debugPrint(response as Any)
+        } catch {
+            debugPrint(error)
+        }
+        return response!
     }
     
 }
+
+

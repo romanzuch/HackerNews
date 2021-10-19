@@ -32,6 +32,7 @@ struct StoriesListView: View {
                     ForEach(storyViewModel.newStories.filter{($0.title.range(of: searchTextNew, options: .caseInsensitive) != nil) || searchTextNew == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
+                                .environmentObject(storyViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
@@ -83,6 +84,7 @@ struct StoriesListView: View {
                     ForEach(storyViewModel.topStories.filter{($0.title.range(of: searchTextTop, options: .caseInsensitive) != nil) || searchTextTop == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
+                                .environmentObject(storyViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
@@ -136,6 +138,7 @@ struct StoriesListView: View {
                     ForEach(storyViewModel.bestStories.filter{($0.title.range(of: searchTextBest, options: .caseInsensitive) != nil) || searchTextBest == ""}, id: \.self.hashValue) { story in
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
+                                .environmentObject(storyViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
