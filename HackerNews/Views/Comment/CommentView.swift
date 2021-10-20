@@ -20,7 +20,7 @@ struct CommentView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack {
                 Text(commentAuthor)
                     .font(.system(size: 12))
@@ -28,6 +28,7 @@ struct CommentView: View {
                 Label("\(commentCount)", systemImage: "captions.bubble")
                     .font(.system(size: 12))
             }
+            .padding(.bottom, 4)
             Text(commentText)
                 .font(.system(size: 12))
         }
