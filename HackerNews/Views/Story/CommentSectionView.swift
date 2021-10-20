@@ -17,14 +17,16 @@ struct CommentSectionView: View {
     }
     
     var body: some View {
-        List {
-            ForEach(storyViewModel.storyComments, id: \.id) { comment in
-                CommentView(comment: comment)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(storyViewModel.storyComments, id: \.id) { comment in
+                    CommentView(comment: comment)
+                }
             }
         }
-            .onAppear {
-                storyViewModel.requestComments(commentIDs: self.story.kids ?? [])
-            }
+        .onAppear {
+            storyViewModel.requestComments(commentIDs: self.story.kids ?? [])
+        }
     }
     
 }
