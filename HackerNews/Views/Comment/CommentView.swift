@@ -12,11 +12,13 @@ struct CommentView: View {
     var commentAuthor: String
     var commentCount: Int
     var commentText: String
+    var subComments: [Int]
     
     init(comment: Comment) {
         self.commentAuthor = comment.by
         self.commentCount = comment.kids?.count ?? 0
         self.commentText = comment.text
+        self.subComments = comment.kids ?? []
     }
     
     var body: some View {
@@ -31,6 +33,9 @@ struct CommentView: View {
             .padding(.bottom, 4)
             Text(commentText)
                 .font(.system(size: 12))
+            // here are the sub-comments if present
+            
+            
         }
     }
 }
