@@ -30,37 +30,60 @@ struct StoryDetailView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
-            
-            Group {
-                if storyTitle != "" {
-                    Text(storyTitle)
-                        .fontWeight(.bold)
-                } else {
-                    EmptyView()
+        ScrollView {
+            VStack(alignment: .center) {
+                
+                Group {
+                    if storyTitle != "" {
+                        Text(storyTitle)
+                            .fontWeight(.bold)
+                            .font(.title)
+                    } else {
+                        EmptyView()
+                    }
+                }
+                .padding(.bottom, 12)
+                
+                Group {
+                    if storyURL != "" {
+                        Link(storyURL, destination: URL(string: storyURL)!).font(.system(size: 12))
+                    } else {
+                        EmptyView()
+                    }
+                }
+                .padding(.bottom, 12)
+                
+                StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
+                    .padding(.bottom, 4)
+                
+                CommentSectionView(story: story)
+                    .environmentObject(storyViewModel)
+                
+                Spacer()
+                
+            }
+            .padding(.horizontal, 10)
+            .toolbar {
+                HStack {
+                    Button {
+                        ShareViewController().share(story.title, urlString: story.url ?? "https://news.ycombinator.com/item?id=\(story.id)")
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    Button {
+                        storyViewModel.saveStory(story)
+                    } label: {
+                        if storyViewModel.savedStories.contains(story) {
+                            Image(systemName: "star.slash")
+                                .foregroundColor(.red)
+                        } else {
+                            Image(systemName: "star")
+                                .foregroundColor(.green)
+                        }
+                    }
                 }
             }
-            .padding(.bottom, 12)
-            
-            Group {
-                if storyURL != "" {
-                    Link(storyURL, destination: URL(string: storyURL)!).font(.system(size: 12))
-                } else {
-                    EmptyView()
-                }
-            }
-            .padding(.bottom, 12)
-            
-            StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
-                .padding(.bottom, 4)
-            
-            CommentSectionView(story: story)
-                .environmentObject(storyViewModel)
-            
-            Spacer()
-            
         }
-        .padding(.horizontal, 10)
         
     }
 }
