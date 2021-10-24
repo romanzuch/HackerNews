@@ -44,7 +44,7 @@ struct EdgeBorder: Shape {
                 case .leading, .trailing: return rect.height
                 }
             }
-            path.addPath(Path(CGRect(x: x, y: y, width: w, height: h)))
+            path.addPath(Path(CGRect(x: x - 12, y: y, width: w, height: h)))
         }
         return path
     }
