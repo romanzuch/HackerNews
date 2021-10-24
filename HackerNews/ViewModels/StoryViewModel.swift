@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class StoryViewModel: ObservableObject {
     
@@ -29,7 +30,7 @@ class StoryViewModel: ObservableObject {
     @Published var bestLimitLow: Int = 0
     
     // story comments
-    @Published var storyComments: [Comment] = []
+    @Published var storyComments: [Int:[Comment]] = [:]
     
     // MARK: - IDs
     
@@ -216,36 +217,84 @@ class StoryViewModel: ObservableObject {
     
     // MARK: - Comments
     
+    func requestComment(id: Int) async throws -> Comment {
+        let requestURL: URL = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json?print=pretty")!
+        let requestDecoder: JSONDecoder = JSONDecoder()
+        
+        let request = URLRequest(url: requestURL)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            throw CommentRequestError.badStatusCode
+        }
+        
+        do {
+            return try requestDecoder.decode(Comment.self, from: data)
+        } catch {
+            throw CommentRequestError.badComment(error)
+        }
+    }
+    
+    func updateStoryComments(id: Int, comment: Comment, mode: CommentUpdateMode) {
+        switch mode {
+        case .append:
+            DispatchQueue.main.async { [self] in
+                storyComments[id]?.append(comment)
+            }
+        case .complete:
+            DispatchQueue.main.async { [self] in
+                storyComments[id] = [comment]
+            }
+        }
+    }
+    
     func requestComments(commentIDs: [Int]) {
         
         if storyComments != nil {
-            storyComments = []
+            DispatchQueue.main.async { [self] in
+                storyComments = [:]
+            }
         }
         
-        let decoder: JSONDecoder = JSONDecoder()
-        print("Requesting comments.")
-        
-        for id in commentIDs {
+        Task.init() {
             
-            let url: URL = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(id).json")!
+            var commentList: [Int] = commentIDs
+            var kidsCount: Int = 0
             
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                
-                guard let commentData = data, error == nil else { return }
+            while !commentList.isEmpty {
                 do {
-                    let comment = try decoder.decode(Comment.self, from: commentData)
-                    DispatchQueue.main.async {
-                        debugPrint("Appending \(comment) to the list...")
-                        self.storyComments.append(comment)
+                    let comment = try await requestComment(id: commentList[0])
+                    if (comment.kids != nil) {
+                        kidsCount += comment.kids?.count ?? 0
+                        for kid in comment.kids! {
+                            commentList.append(kid)
+                        }
                     }
+                    
+                    // check if key (comment id) is already present
+                    if (storyComments[comment.parent] != nil) {
+                        updateStoryComments(id: comment.parent, comment: comment, mode: .append)
+                        commentList.remove(at: 0)
+                    } else {
+                        updateStoryComments(id: comment.parent, comment: comment, mode: .complete)
+                        commentList.remove(at: 0)
+                    }
+                    
                 } catch {
-                    debugPrint("Decoding error: \(error)")
+                    debugPrint(error)
                 }
-                
-            }.resume()
+            }
             
         }
         
+    }
+    
+    func getCommentMarkerColor(commentLevel: Int) -> Color {
+        switch commentLevel {
+        case 0:
+            return Color.yellow.opacity(0)
+        default:
+            return Color.yellow.opacity(Double(1/Double(commentLevel)))
+        }
     }
     
     // MARK: - Test Data Handling
