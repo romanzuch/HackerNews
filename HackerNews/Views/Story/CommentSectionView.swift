@@ -19,8 +19,9 @@ struct CommentSectionView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(storyViewModel.storyComments, id: \.id) { comment in
-                    CommentView(comment: comment)
+                ForEach(storyViewModel.storyComments[story.id] ?? [], id: \.self) { comment in
+                    CommentView(comment: comment, level: 0)
+                        .environmentObject(storyViewModel)
                 }
             }
         }
