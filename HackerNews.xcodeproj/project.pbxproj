@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3006343A2725D5F900AD2F62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30202C7B2716142D001AC594 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30202C7D271620BC001AC594 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		30349EE22704DE2C00F5A141 /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 		3057AC902701F94B0091AC4E = {
 			isa = PBXGroup;
 			children = (
+				3006343A2725D5F900AD2F62 /* README.md */,
 				3057AC9B2701F94C0091AC4E /* HackerNews */,
 				3057AC9A2701F94C0091AC4E /* Products */,
 			);
