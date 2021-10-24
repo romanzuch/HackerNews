@@ -46,3 +46,13 @@ struct Comment: Hashable, Codable {
     }
     
 }
+
+enum CommentRequestError: Error {
+    case badStatusCode
+    case badComment(Error)
+}
+
+enum CommentUpdateMode {
+    case append
+    case complete
+}
