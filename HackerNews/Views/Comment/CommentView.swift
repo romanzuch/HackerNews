@@ -13,12 +13,18 @@ struct CommentView: View {
     var commentCount: Int
     var commentText: String
     var subComments: [Int]
+    var commentID: Int
+    var commentLevel: Int
+    @EnvironmentObject var storyViewModel: StoryViewModel
+    @State private var showSubComments: Bool = false
     
-    init(comment: Comment) {
-        self.commentAuthor = comment.by
+    init(comment: Comment, level: Int) {
+        self.commentAuthor = comment.by ?? ""
         self.commentCount = comment.kids?.count ?? 0
-        self.commentText = comment.text
+        self.commentText = comment.text ?? ""
         self.subComments = comment.kids ?? []
+        self.commentID = comment.id
+        self.commentLevel = level
     }
     
     var body: some View {
@@ -27,21 +33,44 @@ struct CommentView: View {
                 Text(commentAuthor)
                     .font(.system(size: 12))
                     .fontWeight(.bold)
-                Label("\(commentCount)", systemImage: "captions.bubble")
-                    .font(.system(size: 12))
+                Group {
+                    if (subComments.count != 0) {
+                        Button {
+                            debugPrint(showSubComments ? "Hiding subcomments" : "Showing subcomments")
+                            showSubComments.toggle()
+                        } label: {
+                            Label("\(commentCount)", systemImage: "captions.bubble")
+                                .font(.system(size: 12))
+                        }
+                    } else {
+                        Label("\(commentCount)", systemImage: "captions.bubble")
+                            .font(.system(size: 12))
+                    }
+                }
+
             }
             .padding(.bottom, 4)
             Text(commentText)
                 .font(.system(size: 12))
+            
             // here are the sub-comments if present
             
-            
+        }
+        .border(width: 4, edges: [.leading], color: storyViewModel.getCommentMarkerColor(commentLevel: commentLevel))
+        .padding(.horizontal, 4)
+        
+        Group {
+            if (subComments.count != 0) {
+                
+                if ( showSubComments == true ) {
+                    ForEach(storyViewModel.storyComments[commentID] ?? [], id: \.self) { subComment in
+                        CommentView(comment: subComment, level: commentLevel + 1)
+                            .padding(.leading, 12)
+                    }
+                }
+                
+            } else { EmptyView() }
         }
     }
 }
 
-struct CommentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentView(comment: StoryViewModel().getTestComment())
-    }
-}
