@@ -56,7 +56,7 @@ struct CommentView: View {
             // here are the sub-comments if present
             
         }
-        .border(width: 4, edges: [.leading], color: storyViewModel.getCommentMarkerColor(commentLevel: commentLevel))
+        .border(width: 4, edges: [.leading], color: storyViewModel.getCommentMarkerColor(commentLevel: commentLevel), padding: 12)
         .padding(.horizontal, 4)
         
         Group {

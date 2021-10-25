@@ -25,7 +25,7 @@ struct TypePicker: View {
                     .frame(width: UIScreen.main.bounds.width / 3 - 20)
                     .frame(height: 40)
                 
-                    .border(width: (selection == type) ? 5 : 0, edges: [.bottom], color: .yellow.opacity(0.35))
+                    .border(width: (selection == type) ? 5 : 0, edges: [.bottom], color: .yellow.opacity(0.35), padding: 0)
                     
                     .onTapGesture {
                         selection = type
