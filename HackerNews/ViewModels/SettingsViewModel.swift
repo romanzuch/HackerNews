@@ -11,7 +11,6 @@ import SwiftUI
 class SettingsViewModel: ObservableObject {
     
     @Published var appAppearance: appAppearanceMode = .system
-    @Environment(\.colorScheme) var colorScheme
     
     enum appAppearanceMode: String, CaseIterable {
         case dark = "Dark"
@@ -26,7 +25,16 @@ class SettingsViewModel: ObservableObject {
         case .dark:
             return ColorScheme.dark
         case .system:
-            return self.colorScheme
+            switch UITraitCollection.current.userInterfaceStyle.self {
+            case .light:
+                return ColorScheme.light
+            case .dark:
+                return ColorScheme.dark
+            case .unspecified:
+                return ColorScheme.light
+            @unknown default:
+                fatalError()
+            }
         }
     }
     
