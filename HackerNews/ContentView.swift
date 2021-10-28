@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State private var tabSelection = 0
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     
     var body: some View {
         
@@ -30,6 +31,13 @@ struct ContentView: View {
                 }
                 .tag(1)
                 .environmentObject(storyViewModel)
+            
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+                .tag(2)
+                .environmentObject(settingsViewModel)
             
         }
         
