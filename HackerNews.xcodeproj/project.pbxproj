@@ -20,6 +20,9 @@
 		3057ACAE2701FA500091AC4E /* StoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057ACAD2701FA500091AC4E /* StoryList.swift */; };
 		3057ACB02701FA750091AC4E /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057ACAF2701FA750091AC4E /* Story.swift */; };
 		3057ACB22701FC3D0091AC4E /* testData.json in Resources */ = {isa = PBXBuildFile; fileRef = 3057ACB12701FC3D0091AC4E /* testData.json */; };
+		3078553E272B224700FBAEE0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078553D272B224700FBAEE0 /* SettingsView.swift */; };
+		30785540272B23A800FBAEE0 /* ColourSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078553F272B23A800FBAEE0 /* ColourSettingView.swift */; };
+		30785542272B242600FBAEE0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30785541272B242600FBAEE0 /* SettingsViewModel.swift */; };
 		3090937C2706238D004BD9B4 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090937B2706238D004BD9B4 /* RequestType.swift */; };
 		30909380270626E6004BD9B4 /* TypePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090937F270626E6004BD9B4 /* TypePicker.swift */; };
 		30909382270632A2004BD9B4 /* ReloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30909381270632A2004BD9B4 /* ReloadButton.swift */; };
@@ -48,6 +51,9 @@
 		3057ACAD2701FA500091AC4E /* StoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryList.swift; sourceTree = "<group>"; };
 		3057ACAF2701FA750091AC4E /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		3057ACB12701FC3D0091AC4E /* testData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testData.json; sourceTree = "<group>"; };
+		3078553D272B224700FBAEE0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3078553F272B23A800FBAEE0 /* ColourSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourSettingView.swift; sourceTree = "<group>"; };
+		30785541272B242600FBAEE0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3090937B2706238D004BD9B4 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		3090937F270626E6004BD9B4 /* TypePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypePicker.swift; sourceTree = "<group>"; };
 		30909381270632A2004BD9B4 /* ReloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadButton.swift; sourceTree = "<group>"; };
@@ -126,6 +132,8 @@
 		30349EE12704DE1E00F5A141 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3078553D272B224700FBAEE0 /* SettingsView.swift */,
+				3078553F272B23A800FBAEE0 /* ColourSettingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			children = (
 				30349EEB2704F6DF00F5A141 /* StoryViewModel.swift */,
 				3090937B2706238D004BD9B4 /* RequestType.swift */,
+				30785541272B242600FBAEE0 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -275,6 +284,7 @@
 				30349EEC2704F6DF00F5A141 /* StoryViewModel.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
 				30202C7E271620BC001AC594 /* ShareViewController.swift in Sources */,
+				3078553E272B224700FBAEE0 /* SettingsView.swift in Sources */,
 				30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */,
 				30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */,
 				3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */,
@@ -288,6 +298,8 @@
 				3090938627064988004BD9B4 /* StoriesListView.swift in Sources */,
 				3057ACB02701FA750091AC4E /* Story.swift in Sources */,
 				3090937C2706238D004BD9B4 /* RequestType.swift in Sources */,
+				30785542272B242600FBAEE0 /* SettingsViewModel.swift in Sources */,
+				30785540272B23A800FBAEE0 /* ColourSettingView.swift in Sources */,
 				30909382270632A2004BD9B4 /* ReloadButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
