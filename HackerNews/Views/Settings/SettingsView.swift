@@ -20,6 +20,19 @@ struct SettingsView: View {
                             Text(scheme.rawValue)
                         }
                     }
+                    .onReceive([self.$viewModel.appAppearance].publisher.first()) { value in
+                        //UserDefaults.standard.set(value, forKey: "appAppearance")
+                        switch value.wrappedValue {
+                            
+                        case .dark:
+                            UserDefaults.standard.set(SettingsViewModel.appAppearanceMode.dark.rawValue, forKey: "appAppearance")
+                        case .light:
+                            UserDefaults.standard.set(SettingsViewModel.appAppearanceMode.light.rawValue, forKey: "appAppearance")
+                        case .system:
+                            UserDefaults.standard.set(SettingsViewModel.appAppearanceMode.system.rawValue, forKey: "appAppearance")
+                        
+                        }
+                    }
                     NavigationLink("Colours") {
                         ColourSettingView()
                     }
