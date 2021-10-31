@@ -17,7 +17,7 @@ class StoryViewModel: ObservableObject {
     @Published var bestStories: [Story] = []
     
     // saved stories
-    @Published var savedStories: [Story] = []
+    @Published var savedStories: [Story] = UserDefaults.standard.array(forKey: "savedStories") as? [Story] ?? []
     
     // list limits
     @Published var newLimitHigh: Int = 20
