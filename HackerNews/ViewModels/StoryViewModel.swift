@@ -255,8 +255,6 @@ class StoryViewModel: ObservableObject {
             }
         }
         
-        debugPrint(commentIDs[0])
-        
         Task.init() {
             
             var commentList: [Int] = commentIDs
