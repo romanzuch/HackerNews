@@ -10,7 +10,8 @@ import SwiftUI
 
 class SettingsViewModel: ObservableObject {
     
-    @Published var appAppearance: appAppearanceMode = .system
+    @Published var appAppearance: appAppearanceMode = appAppearanceMode(rawValue: UserDefaults.standard.string(forKey: "appAppearance") ?? "System") ?? .system
+    
     
     enum appAppearanceMode: String, CaseIterable {
         case dark = "Dark"
