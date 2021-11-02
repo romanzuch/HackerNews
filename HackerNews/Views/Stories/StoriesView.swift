@@ -11,6 +11,7 @@ struct StoriesView: View {
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
     
     @State private var selection: RequestType = .new
     
@@ -24,6 +25,7 @@ struct StoriesView: View {
                     .environmentObject(settingsViewModel)
                 
                 StoriesListView(selection: selection)
+                    .environmentObject(commentViewModel)
                 
             }
             
