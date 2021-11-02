@@ -12,6 +12,8 @@ class SettingsViewModel: ObservableObject {
     
     @Published var appAppearance: appAppearanceMode = appAppearanceMode(rawValue: UserDefaults.standard.string(forKey: "appAppearance") ?? "System") ?? .system
     
+    @Published var highlightColor: Color = Color(UserDefaults.standard.highlightColor ?? UIColor(.yellow))
+    
     
     enum appAppearanceMode: String, CaseIterable {
         case dark = "Dark"
