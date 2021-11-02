@@ -17,6 +17,7 @@ struct StoryDetailView: View {
     var storyCommentIDs: [Int]
     
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
     @Environment(\.dismiss) var dismiss
     
     init(story: Story) {
@@ -58,6 +59,7 @@ struct StoryDetailView: View {
                 
                 CommentSectionView(story: story)
                     .environmentObject(storyViewModel)
+                    .environmentObject(commentViewModel)
                 
                 Spacer()
                 
