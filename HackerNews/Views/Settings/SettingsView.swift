@@ -33,9 +33,10 @@ struct SettingsView: View {
                         
                         }
                     }
-                    NavigationLink("Colours") {
-                        ColourSettingView()
-                    }
+                    ColorPicker("Highlight colour", selection: $viewModel.highlightColor)
+                        .onReceive([self.$viewModel.highlightColor].publisher.first()) { value in
+                            UserDefaults.standard.highlightColor = UIColor(value.wrappedValue)
+                        }
                 } header: {
                     Text("Appearance")
                 }
