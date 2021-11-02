@@ -24,6 +24,7 @@ struct ContentView: View {
                 }
                 .tag(0)
                 .environmentObject(storyViewModel)
+                .environmentObject(settingsViewModel)
             
             SavedView()
                 .tabItem {
