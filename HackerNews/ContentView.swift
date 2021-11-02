@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var tabSelection = 0
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
     
     var body: some View {
         
@@ -25,6 +26,7 @@ struct ContentView: View {
                 .tag(0)
                 .environmentObject(storyViewModel)
                 .environmentObject(settingsViewModel)
+                .environmentObject(commentViewModel)
             
             SavedView()
                 .tabItem {
