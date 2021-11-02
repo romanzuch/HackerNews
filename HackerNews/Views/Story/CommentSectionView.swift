@@ -11,6 +11,7 @@ struct CommentSectionView: View {
     
     let story: Story
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
     
     init(story: Story) {
         self.story = story
@@ -22,6 +23,7 @@ struct CommentSectionView: View {
                 ForEach(storyViewModel.storyComments[story.id] ?? [], id: \.self) { comment in
                     CommentView(comment: comment, level: 0)
                         .environmentObject(storyViewModel)
+                        .environmentObject(commentViewModel)
                 }
             }
         }
