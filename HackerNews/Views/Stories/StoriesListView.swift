@@ -10,6 +10,8 @@ import SwiftUI
 struct StoriesListView: View {
     
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
+    
     var selection: RequestType
     @State private var showDetails: Bool = false
     @Environment(\.openURL) var openURL
@@ -33,6 +35,7 @@ struct StoriesListView: View {
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                                 .environmentObject(storyViewModel)
+                                .environmentObject(commentViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
