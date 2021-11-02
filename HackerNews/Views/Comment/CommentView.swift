@@ -15,7 +15,11 @@ struct CommentView: View {
     var subComments: [Int]
     var commentID: Int
     var commentLevel: Int
+    
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var commentViewModel: CommentViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    
     @State private var showSubComments: Bool = false
     
     init(comment: Comment, level: Int) {
@@ -56,7 +60,7 @@ struct CommentView: View {
             // here are the sub-comments if present
             
         }
-        .border(width: 4, edges: [.leading], color: storyViewModel.getCommentMarkerColor(commentLevel: commentLevel), padding: 12)
+        .border(width: 4, edges: [.leading], color: commentViewModel.getCommentMarkerColor(commentLevel: commentLevel, settingsViewModel: settingsViewModel), padding: 12)
         .padding(.horizontal, 4)
         
         Group {
