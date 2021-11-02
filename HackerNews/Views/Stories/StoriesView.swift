@@ -10,6 +10,8 @@ import SwiftUI
 struct StoriesView: View {
     
     @EnvironmentObject var storyViewModel: StoryViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
+    
     @State private var selection: RequestType = .new
     
     var body: some View {
@@ -19,6 +21,7 @@ struct StoriesView: View {
             VStack {
                 
                 TypePicker($selection)
+                    .environmentObject(settingsViewModel)
                 
                 StoriesListView(selection: selection)
                 
