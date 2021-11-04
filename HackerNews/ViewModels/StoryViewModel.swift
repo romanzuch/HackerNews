@@ -202,6 +202,8 @@ class StoryViewModel: ObservableObject {
     // MARK: - Saved stories
     
     func saveStory(_ story: Story) {
+        // ask the user for subscription here
+        
         if !self.savedStories.contains(story) {
             self.savedStories.append(story)
             self.saveStoriesToUserDefaults()
@@ -216,18 +218,14 @@ class StoryViewModel: ObservableObject {
     }
     
     func saveStoriesToUserDefaults() {
-    //    let encoder = JSONEncoder()
-    //    var encodedStories: [Data]
-        
-    //    encodedStories = savedStories.compactMap {
-    //        do {
-    //           return try encoder.encode($0)
-    //        } catch {
-    //            debugPrint(error.localizedDescription)
-    //            return nil
-    //        }
-    //    }
         UserDefaults.standard.set(savedStories, forKey: "savedStories")
+    }
+    
+    // MARK: - Subscribe Stories
+    
+    func subscribeToStory(story: Story) {
+        // saved stories can be subscribed to
+        
     }
     
     // MARK: - Comments
