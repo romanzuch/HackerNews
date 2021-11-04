@@ -31,6 +31,7 @@
 		3090938427063F76004BD9B4 /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938327063F76004BD9B4 /* StoryDetailView.swift */; };
 		3090938627064988004BD9B4 /* StoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938527064988004BD9B4 /* StoriesListView.swift */; };
 		3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */; };
+		30ABDBE22731D9AB000D63F0 /* SavingStoryToUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ABDBE12731D9AB000D63F0 /* SavingStoryToUserDefaults.swift */; };
 		30CC6534271F25EE0023CD55 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CC6533271F25EE0023CD55 /* CommentView.swift */; };
 		30CC6536271F26550023CD55 /* testComment.json in Resources */ = {isa = PBXBuildFile; fileRef = 30CC6535271F26550023CD55 /* testComment.json */; };
 		30D3AE36271BFBA6005F0B29 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D3AE35271BFBA6005F0B29 /* Comment.swift */; };
@@ -64,6 +65,7 @@
 		3090938327063F76004BD9B4 /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		3090938527064988004BD9B4 /* StoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesListView.swift; sourceTree = "<group>"; };
 		3090938727065712004BD9B4 /* StoryInfoBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInfoBadgeView.swift; sourceTree = "<group>"; };
+		30ABDBE12731D9AB000D63F0 /* SavingStoryToUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingStoryToUserDefaults.swift; sourceTree = "<group>"; };
 		30CC6533271F25EE0023CD55 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		30CC6535271F26550023CD55 /* testComment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testComment.json; sourceTree = "<group>"; };
 		30D3AE35271BFBA6005F0B29 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				305909452731B4FD00109F0E /* SavingColourToUserDefaults.swift */,
+				30ABDBE12731D9AB000D63F0 /* SavingStoryToUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				3090938827065712004BD9B4 /* StoryInfoBadgeView.swift in Sources */,
 				30CC6534271F25EE0023CD55 /* CommentView.swift in Sources */,
 				30349EEC2704F6DF00F5A141 /* StoryViewModel.swift in Sources */,
+				30ABDBE22731D9AB000D63F0 /* SavingStoryToUserDefaults.swift in Sources */,
 				3057AC9F2701F94C0091AC4E /* ContentView.swift in Sources */,
 				30202C7E271620BC001AC594 /* ShareViewController.swift in Sources */,
 				3078553E272B224700FBAEE0 /* SettingsView.swift in Sources */,
