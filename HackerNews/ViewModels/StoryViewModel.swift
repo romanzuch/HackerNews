@@ -17,7 +17,7 @@ class StoryViewModel: ObservableObject {
     @Published var bestStories: [Story] = []
     
     // saved stories
-    @Published var savedStories: [Story] = UserDefaults.standard.array(forKey: "savedStories") as? [Story] ?? []
+    @Published var savedStories: [Story] = UserDefaults.standard.stories(forKey: "savedStories") ?? []
     
     // list limits
     @Published var newLimitHigh: Int = 20
@@ -202,17 +202,32 @@ class StoryViewModel: ObservableObject {
     // MARK: - Saved stories
     
     func saveStory(_ story: Story) {
-        if self.savedStories.contains(story) {
-            print("Removing story from list.")
+        if !self.savedStories.contains(story) {
+            self.savedStories.append(story)
+            self.saveStoriesToUserDefaults()
+        } else {
             let indexOfStory = self.savedStories.firstIndex(of: story)
             self.savedStories.remove(at: indexOfStory!)
-        } else {
-            self.savedStories.append(story)
         }
     }
     
     func removeStory(at offsets: IndexSet) {
         self.savedStories.remove(at: offsets.first!)
+    }
+    
+    func saveStoriesToUserDefaults() {
+    //    let encoder = JSONEncoder()
+    //    var encodedStories: [Data]
+        
+    //    encodedStories = savedStories.compactMap {
+    //        do {
+    //           return try encoder.encode($0)
+    //        } catch {
+    //            debugPrint(error.localizedDescription)
+    //            return nil
+    //        }
+    //    }
+        UserDefaults.standard.set(savedStories, forKey: "savedStories")
     }
     
     // MARK: - Comments
@@ -286,15 +301,6 @@ class StoryViewModel: ObservableObject {
             
         }
         
-    }
-    
-    func getCommentMarkerColor(commentLevel: Int) -> Color {
-        switch commentLevel {
-        case 0:
-            return Color.yellow.opacity(0)
-        default:
-            return Color.yellow.opacity(Double(1/Double(commentLevel)))
-        }
     }
     
     // MARK: - Test Data Handling
