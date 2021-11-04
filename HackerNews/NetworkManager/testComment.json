@@ -1,0 +1,26 @@
+{
+    "by": "stingraycharles",
+    "id": 28578541,
+    "kids": [
+        28578595,
+        28578629,
+        28578696,
+        28578637,
+        28578620,
+        28578608,
+        28578869,
+        28578642,
+        28578847,
+        28578578,
+        28578756,
+        28578819,
+        28579319,
+        28578754,
+        28579011,
+        28582219
+    ],
+    "parent": 28578399,
+    "text": "Since this is HN, it’s 2021 and DDoS’es are still a thing:  why are they still a thing? Is there some fundamental “anonymity” to the Internet that makes it impossible to structurally prevent DDoS attacks? Apart from CloudFlare-like approaches, are there any R&amp;D in the pipeline that may kill this type of attack once and for all?<p>To me it’s incredibly infuriating to see the damage that still happens with these extremely simple techniques. Will it ever end?<p>Edit: to elaborate, I know that there are tons of insecure Internet devices and whatnot. I’m more interested in standards, and core protocol improvements that can fundamentally rid the world of these types of attacks.",
+    "time": 1631992891,
+    "type": "comment"
+}

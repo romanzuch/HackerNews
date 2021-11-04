@@ -14,12 +14,14 @@ struct StoryRowView: View {
     var storyTitle: String
     var storyCommentCount: Int
     var storyScore: Int
+    var storyAuthor: String
     
     init(story: Story) {
         self.storyURL = story.url ?? ""
         self.storyTitle = story.title
         self.storyCommentCount = story.descendants ?? 0
         self.storyScore = story.score
+        self.storyAuthor = story.by
     }
     
     var body: some View {
@@ -34,7 +36,7 @@ struct StoryRowView: View {
                 Text("No title")
             }            
             
-            StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
+            StoryInfoBadgeView(score: storyScore, count: storyCommentCount, author: storyAuthor)
             
         }
         

@@ -15,6 +15,7 @@ struct StoryDetailView: View {
     var storyCommentCount: Int
     var storyScore: Int
     var storyCommentIDs: [Int]
+    var storyAuthor: String
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var commentViewModel: CommentViewModel
@@ -26,6 +27,7 @@ struct StoryDetailView: View {
         self.storyTitle = story.title
         self.storyCommentCount = story.descendants ?? 0
         self.storyScore = story.score
+        self.storyAuthor = story.by
         self.storyCommentIDs = story.kids ?? []
     }
     
@@ -54,7 +56,7 @@ struct StoryDetailView: View {
                 }
                 .padding(.bottom, 12)
                 
-                StoryInfoBadgeView(score: storyScore, count: storyCommentCount)
+                StoryInfoBadgeView(score: storyScore, count: storyCommentCount, author: storyAuthor)
                     .padding(.bottom, 4)
                 
                 CommentSectionView(story: story)

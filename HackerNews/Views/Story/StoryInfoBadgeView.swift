@@ -11,14 +11,24 @@ struct StoryInfoBadgeView: View {
     
     private var score: Int
     private var commentCount: Int
+    private var author: String
     
-    init(score: Int, count: Int) {
+    init(score: Int, count: Int, author: String) {
         self.score = score
         self.commentCount = count
+        self.author = author
     }
     
     var body: some View {
         HStack {
+            
+            Group {
+                HStack {
+                    Text(author)
+                    Text("⋅")
+                }
+                .font(.system(size: 10))
+            }
             
             if score != 0 {
                 HStack{
