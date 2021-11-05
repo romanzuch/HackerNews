@@ -26,6 +26,8 @@ struct StoriesView: View {
                 
                 StoriesListView(selection: selection)
                     .environmentObject(commentViewModel)
+                    .environmentObject(storyViewModel)
+                    .environmentObject(settingsViewModel)
                 
             }
             

@@ -11,6 +11,7 @@ struct StoriesListView: View {
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var commentViewModel: CommentViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     
     var selection: RequestType
     @State private var showDetails: Bool = false
@@ -20,6 +21,9 @@ struct StoriesListView: View {
     @State private var searchTextNew: String = ""
     @State private var searchTextTop: String = ""
     @State private var searchTextBest: String = ""
+    
+    // story subscription alert
+    @State private var showingAlert = false
     
     init(selection: RequestType) {
         self.selection = selection
@@ -36,6 +40,7 @@ struct StoriesListView: View {
                             StoryDetailView(story: story)
                                 .environmentObject(storyViewModel)
                                 .environmentObject(commentViewModel)
+                                .environmentObject(settingsViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
@@ -43,7 +48,7 @@ struct StoriesListView: View {
                             .swipeActions(edge: .leading) {
                                 
                                 Button {
-                                    storyViewModel.saveStory(story)
+                                    storyViewModel.saveStory(story, showAlert: $showingAlert)
                                 } label: {
                                     if storyViewModel.savedStories.contains(story) {
                                         Label("Remove", systemImage: "star.slash.fill")
@@ -69,6 +74,9 @@ struct StoriesListView: View {
                                 }
                                 .tint(.yellow.opacity(0.35))
                                 
+                            }
+                            .alert(isPresented: $showingAlert) {
+                                AlertController(settingsViewModel: settingsViewModel, storyViewModel: storyViewModel).subscriptionAlert(story: story)
                             }
                     }
                 }
@@ -88,6 +96,8 @@ struct StoriesListView: View {
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                                 .environmentObject(storyViewModel)
+                                .environmentObject(commentViewModel)
+                                .environmentObject(settingsViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
@@ -95,7 +105,7 @@ struct StoriesListView: View {
                             .swipeActions(edge: .leading) {
                                 
                                 Button {
-                                    storyViewModel.saveStory(story)
+                                    storyViewModel.saveStory(story, showAlert: $showingAlert)
                                 } label: {
                                     if storyViewModel.savedStories.contains(story) {
                                         Label("Remove", systemImage: "star.slash.fill")
@@ -121,6 +131,10 @@ struct StoriesListView: View {
                                 }
                                 .tint(.yellow.opacity(0.35))
                                 
+                            }
+                        
+                            .alert(isPresented: $showingAlert) {
+                                AlertController(settingsViewModel: settingsViewModel, storyViewModel: storyViewModel).subscriptionAlert(story: story)
                             }
                         
                     }
@@ -142,6 +156,8 @@ struct StoriesListView: View {
                         NavigationLink(destination: {
                             StoryDetailView(story: story)
                                 .environmentObject(storyViewModel)
+                                .environmentObject(commentViewModel)
+                                .environmentObject(settingsViewModel)
                         }, label: {
                             StoryRowView(story: story)
                         })
@@ -149,7 +165,7 @@ struct StoriesListView: View {
                             .swipeActions(edge: .leading) {
                                 
                                 Button {
-                                    storyViewModel.saveStory(story)
+                                    storyViewModel.saveStory(story, showAlert: $showingAlert)
                                 } label: {
                                     if storyViewModel.savedStories.contains(story) {
                                         Label("Remove", systemImage: "star.slash.fill")
@@ -175,6 +191,10 @@ struct StoriesListView: View {
                                 }
                                 .tint(.yellow.opacity(0.35))
                                 
+                            }
+                        
+                            .alert(isPresented: $showingAlert) {
+                                AlertController(settingsViewModel: settingsViewModel, storyViewModel: storyViewModel).subscriptionAlert(story: story)
                             }
                         
                     }

@@ -19,7 +19,10 @@ struct StoryDetailView: View {
     
     @EnvironmentObject var storyViewModel: StoryViewModel
     @EnvironmentObject var commentViewModel: CommentViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     @Environment(\.dismiss) var dismiss
+    
+    @State private var showingAlert = false
     
     init(story: Story) {
         self.story = story
@@ -67,6 +70,9 @@ struct StoryDetailView: View {
                 
             }
             .padding(.horizontal, 10)
+            .alert(isPresented: $showingAlert) {
+                AlertController(settingsViewModel: settingsViewModel, storyViewModel: storyViewModel).subscriptionAlert(story: story)
+            }
             .toolbar {
                 HStack {
                     Button {
@@ -75,7 +81,7 @@ struct StoryDetailView: View {
                         Image(systemName: "square.and.arrow.up")
                     }
                     Button {
-                        storyViewModel.saveStory(story)
+                        storyViewModel.saveStory(story, showAlert: $showingAlert)
                     } label: {
                         if storyViewModel.savedStories.contains(story) {
                             Image(systemName: "star.slash")

@@ -201,12 +201,13 @@ class StoryViewModel: ObservableObject {
     
     // MARK: - Saved stories
     
-    func saveStory(_ story: Story) {
+    func saveStory(_ story: Story, showAlert: Binding<Bool>) {
         // ask the user for subscription here
         
         if !self.savedStories.contains(story) {
             self.savedStories.append(story)
             self.saveStoriesToUserDefaults()
+            showAlert.wrappedValue = true
         } else {
             let indexOfStory = self.savedStories.firstIndex(of: story)
             self.savedStories.remove(at: indexOfStory!)
