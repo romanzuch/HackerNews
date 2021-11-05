@@ -51,6 +51,30 @@ class SettingsViewModel: ObservableObject {
         }
     }
     
+    func setAppIcon(value pickerValue: Int) {
+        
+        debugPrint(pickerValue)
+        UserDefaults.standard.set(pickerValue, forKey: "currentIndex")
+        
+        let alternateIconName = UIApplication.shared.alternateIconName
+        
+        debugPrint(alternateIconName)
+        
+        if alternateIconName == nil && pickerValue == 0 {
+            UserDefaults.standard.set(0, forKey: "currentIndex")
+        } else {
+            if self.iconNames[pickerValue] != alternateIconName {
+                UIApplication.shared.setAlternateIconName(self.iconNames[pickerValue]) { error in
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                    } else {
+                        debugPrint("Success!")
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 
