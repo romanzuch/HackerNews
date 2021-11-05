@@ -20,8 +20,9 @@ class SettingsViewModel: ObservableObject {
     @Published var autoSubscription: Bool = UserDefaults.standard.bool(forKey: "autoSubscription")
     
     // MARK: - APP ICON
-    @Published var appIcon: String = UserDefaults.standard.string(forKey: "appIcon") ?? "default"
-    let appIcons: [String] = ["default", "light", "dark", "colorful"]
+    //@Published var appIcon: String = UserDefaults.standard.string(forKey: "appIcon") ?? "default"
+    @Published var currentIndex: Int = UserDefaults.standard.integer(forKey: "currentIndex")
+    var iconNames: [String] = ["Standard", "Light", "Dark", "Colorful"]
     
     
     enum appAppearanceMode: String, CaseIterable {

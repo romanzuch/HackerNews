@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		300101362735911000514FD8 /* Standard@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3001012E2735911000514FD8 /* Standard@1x.png */; };
+		300101372735911000514FD8 /* Dark@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3001012F2735911000514FD8 /* Dark@1x.png */; };
+		300101382735911000514FD8 /* Colorful@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101302735911000514FD8 /* Colorful@2x.png */; };
+		300101392735911000514FD8 /* Light@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101312735911000514FD8 /* Light@1x.png */; };
+		3001013A2735911000514FD8 /* Standard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101322735911000514FD8 /* Standard@2x.png */; };
+		3001013B2735911000514FD8 /* Light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101332735911000514FD8 /* Light@2x.png */; };
+		3001013C2735911000514FD8 /* Colorful@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101342735911000514FD8 /* Colorful@1x.png */; };
+		3001013D2735911000514FD8 /* Dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 300101352735911000514FD8 /* Dark@2x.png */; };
 		30202C7C2716142D001AC594 /* EdgeBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30202C7B2716142D001AC594 /* EdgeBorder.swift */; };
 		30202C7E271620BC001AC594 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30202C7D271620BC001AC594 /* ShareViewController.swift */; };
 		30349EE32704DE2C00F5A141 /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30349EE22704DE2C00F5A141 /* StoriesView.swift */; };
@@ -40,6 +48,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3001011A27357C3900514FD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3001012E2735911000514FD8 /* Standard@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Standard@1x.png"; sourceTree = "<group>"; };
+		3001012F2735911000514FD8 /* Dark@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dark@1x.png"; sourceTree = "<group>"; };
+		300101302735911000514FD8 /* Colorful@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Colorful@2x.png"; sourceTree = "<group>"; };
+		300101312735911000514FD8 /* Light@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Light@1x.png"; sourceTree = "<group>"; };
+		300101322735911000514FD8 /* Standard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Standard@2x.png"; sourceTree = "<group>"; };
+		300101332735911000514FD8 /* Light@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Light@2x.png"; sourceTree = "<group>"; };
+		300101342735911000514FD8 /* Colorful@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Colorful@1x.png"; sourceTree = "<group>"; };
+		300101352735911000514FD8 /* Dark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dark@2x.png"; sourceTree = "<group>"; };
 		3006343A2725D5F900AD2F62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		30202C7B2716142D001AC594 /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
 		30202C7D271620BC001AC594 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +102,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3001011B27357E5A00514FD8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				300101342735911000514FD8 /* Colorful@1x.png */,
+				300101302735911000514FD8 /* Colorful@2x.png */,
+				3001012F2735911000514FD8 /* Dark@1x.png */,
+				300101352735911000514FD8 /* Dark@2x.png */,
+				300101312735911000514FD8 /* Light@1x.png */,
+				300101332735911000514FD8 /* Light@2x.png */,
+				3001012E2735911000514FD8 /* Standard@1x.png */,
+				300101322735911000514FD8 /* Standard@2x.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		30202C7A2716141E001AC594 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +210,8 @@
 		3057AC9B2701F94C0091AC4E /* HackerNews */ = {
 			isa = PBXGroup;
 			children = (
+				3001011B27357E5A00514FD8 /* Icons */,
+				3001011A27357C3900514FD8 /* Info.plist */,
 				305909442731B4E700109F0E /* Helpers */,
 				30349EE62704E05900F5A141 /* ViewModels */,
 				30349EDD2704DE0000F5A141 /* Views */,
@@ -293,10 +327,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				300101392735911000514FD8 /* Light@1x.png in Resources */,
+				3001013B2735911000514FD8 /* Light@2x.png in Resources */,
+				300101362735911000514FD8 /* Standard@1x.png in Resources */,
+				300101372735911000514FD8 /* Dark@1x.png in Resources */,
 				3057ACB22701FC3D0091AC4E /* testData.json in Resources */,
+				3001013A2735911000514FD8 /* Standard@2x.png in Resources */,
 				3057ACA42701F94D0091AC4E /* Preview Assets.xcassets in Resources */,
 				3057ACA12701F94D0091AC4E /* Assets.xcassets in Resources */,
+				300101382735911000514FD8 /* Colorful@2x.png in Resources */,
 				30CC6536271F26550023CD55 /* testComment.json in Resources */,
+				3001013D2735911000514FD8 /* Dark@2x.png in Resources */,
+				3001013C2735911000514FD8 /* Colorful@1x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +508,7 @@
 				DEVELOPMENT_TEAM = HS8PVR3BLT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackerNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,6 +539,7 @@
 				DEVELOPMENT_TEAM = HS8PVR3BLT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HackerNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
