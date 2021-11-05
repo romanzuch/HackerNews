@@ -44,6 +44,7 @@ struct SettingsView: View {
                 }
                 
                 // MARK: - NOTIFICATIONS
+                /*
                 Section {
                     Toggle(isOn: .init(get: {
                         $viewModel.allowSubscription.wrappedValue
@@ -101,42 +102,34 @@ struct SettingsView: View {
                 } header: {
                     Text("Notifications")
                 }
-                
+                */
+                 
                 // MARK: - APP ICON
-                Picker(selection: $viewModel.currentIndex) {
-                    ForEach(0 ..< viewModel.iconNames.count, id: \.self) { i in
-                        Label {
-                            Text(viewModel.iconNames[i])
-                                .padding(.horizontal, 20)
-                        } icon: {
-                            Image(uiImage: UIImage(named: viewModel.iconNames[i]) ?? UIImage())
-                                .resizable()
-                                .renderingMode(.original)
-                                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                                .frame(width: 64, height: 64, alignment: .leading)
-                                .padding(.all, 10)
-                        }
-                        .padding(.horizontal, 12)
-                    }
-                } label: {
-                    Text("App Icon")
-                }
-                .onReceive([self.$viewModel.currentIndex].publisher.first()) { value in
-                    UserDefaults.standard.set(value.wrappedValue, forKey: "currentIndex")
-                    
-                    let alternateIconName = UIApplication.shared.alternateIconName
-                    
-                    debugPrint(self.viewModel.iconNames[value.wrappedValue])
-                    if self.viewModel.iconNames[value.wrappedValue] != alternateIconName {
-                        UIApplication.shared.setAlternateIconName(self.viewModel.iconNames[value.wrappedValue]) { error in
-                            if let error = error {
-                                debugPrint(error.localizedDescription)
-                            } else {
-                                debugPrint("Success!")
+                Section {
+                    Picker(selection: $viewModel.currentIndex) {
+                        ForEach(0 ..< viewModel.iconNames.count, id: \.self) { i in
+                            Label {
+                                Text(viewModel.iconNames[i])
+                                    .padding(.horizontal, 20)
+                            } icon: {
+                                Image(uiImage: UIImage(named: viewModel.iconNames[i]) ?? UIImage())
+                                    .resizable()
+                                    .renderingMode(.original)
+                                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                                    .frame(width: 64, height: 64, alignment: .leading)
+                                    .padding(.all, 10)
                             }
+                            .padding(.horizontal, 12)
                         }
+                    } label: {
+                        Text("App Icon")
                     }
-                    
+                    .onReceive([self.$viewModel.currentIndex].publisher.first()) { value in
+                        self.viewModel.setAppIcon(value: value.wrappedValue)
+                        
+                    }
+                } header: {
+                    Text("Icon")
                 }
 
 
