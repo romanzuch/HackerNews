@@ -4,6 +4,37 @@
 <dict>
 	<key>CFBundleIcons</key>
 	<dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>colorful</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>colorful</string>
+				</array>
+			</dict>
+			<key>dark</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>dark</string>
+				</array>
+			</dict>
+			<key>default</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>default</string>
+				</array>
+			</dict>
+			<key>light</key>
+			<dict>
+				<key>CFBundleIconFiles</key>
+				<array>
+					<string>light</string>
+				</array>
+			</dict>
+		</dict>
 		<key>CFBundlePrimaryIcon</key>
 		<dict>
 			<key>CFBundleIconFiles</key>
