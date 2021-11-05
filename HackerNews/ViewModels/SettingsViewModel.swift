@@ -13,6 +13,15 @@ class SettingsViewModel: ObservableObject {
     @Published var appAppearance: appAppearanceMode = appAppearanceMode(rawValue: UserDefaults.standard.string(forKey: "appAppearance") ?? "System") ?? .system
     
     @Published var highlightColor: Color = Color(UserDefaults.standard.highlightColor ?? UIColor(.yellow))
+//    @Published var highlightColor: Color = .yellow
+    
+    // MARK: - NOTIFICATIONS
+    @Published var allowSubscription: Bool = UserDefaults.standard.bool(forKey: "allowSubscription")
+    @Published var autoSubscription: Bool = UserDefaults.standard.bool(forKey: "autoSubscription")
+    
+    // MARK: - APP ICON
+    @Published var appIcon: String = UserDefaults.standard.string(forKey: "appIcon") ?? "default"
+    let appIcons: [String] = ["default", "light", "dark", "colorful"]
     
     
     enum appAppearanceMode: String, CaseIterable {
